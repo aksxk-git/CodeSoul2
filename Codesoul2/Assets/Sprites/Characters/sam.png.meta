@@ -1,31 +1,40 @@
 fileFormatVersion: 2
-guid: 4e131f4513255844797eece36612b2d1
+guid: f6aab89749e49d6429d0c55b43a6b176
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1946111706206282903
-    second: SAS_0
+      213: 939537763808407826
+    second: sam_0
   - first:
-      213: -4135564625000542049
-    second: SAS_1
+      213: 2698167402151498012
+    second: sam_1
   - first:
-      213: 3422121503641754009
-    second: SAS_2
+      213: 1146302909237140331
+    second: sam_2
   - first:
-      213: 7543964781638743459
-    second: SAS_3
+      213: 7377085340025233785
+    second: sam_3
   - first:
-      213: 7783826343357641294
-    second: SAS_4
+      213: -568724858850205694
+    second: sam_4
   - first:
-      213: 7288356438909664116
-    second: SAS_5
+      213: 8004978069353379489
+    second: sam_5
   - first:
-      213: 5732013848416835975
-    second: SAS_6
+      213: 1923110908681159031
+    second: sam_6
   - first:
-      213: 4384804010727303751
-    second: SAS_7
+      213: -5084282428845164719
+    second: sam_7
+  - first:
+      213: -2640968196510770157
+    second: sam_8
+  - first:
+      213: 1418236967045366575
+    second: sam_9
+  - first:
+      213: 1925292191590771698
+    second: sam_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,13 +130,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Head
+      name: sam_hair
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 16
-        height: 16
+        y: 34
+        width: 27
+        height: 30
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2117dd84e98e90d00800000000000000
+      internalID: 939537763808407826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sam_eye_01
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 60
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1157cde4f0d17520800000000000000
+      internalID: 2698167402151498012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sam_head
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12
+        width: 21
+        height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,64 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 794a7ad294af10b10800000000000000
-      internalID: 1946111706206282903
+      spriteID: b6b931e2c6c78ef00800000000000000
+      internalID: 1146302909237140331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UpperTorso
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.50369024, y: 0.9243777}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f90db2d72e58b96c0800000000000000
-      internalID: -4135564625000542049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UpperArm
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.49999988, y: 0.93175817}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 999daca5061dd7f20800000000000000
-      internalID: 3422121503641754009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UpperLeg
+      name: sam_upper_torso
       rect:
         serializedVersion: 2
         x: 32
-        y: 32
-        width: 16
-        height: 16
+        y: 33
+        width: 15
+        height: 15
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,64 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a572afcffb81b860800000000000000
-      internalID: 7543964781638743459
+      spriteID: 97122f1080ca06660800000000000000
+      internalID: 7377085340025233785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LowerTorso
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.50369024, y: 0.9243777}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e42f82d91d4b50c60800000000000000
-      internalID: 7783826343357641294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LowerArm
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5036901, y: 0.92068744}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 47b34a9d091752560800000000000000
-      internalID: 7288356438909664116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LowerLeg
+      name: sam_lower_torso
       rect:
         serializedVersion: 2
         x: 32
-        y: 16
-        width: 16
-        height: 16
+        y: 17
+        width: 13
+        height: 15
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,52 +233,184 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7895182c9343c8f40800000000000000
-      internalID: 5732013848416835975
+      spriteID: 200ac4d01cb7b18f0800000000000000
+      internalID: -568724858850205694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hand
+      name: sam_upper_leg
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.4926194, y: 0.6771316}
+        x: 48
+        y: 33
+        width: 9
+        height: 15
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 74aeb1d1404f9dc30800000000000000
-      internalID: 4384804010727303751
+      spriteID: 1a6b9925425671f60800000000000000
+      internalID: 8004978069353379489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foot
+      name: sam_lower_leg
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
+        x: 48
+        y: 17
+        width: 6
+        height: 15
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7718e9fae2340ba10800000000000000
+      internalID: 1923110908681159031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sam_upper_arm
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 35
+        width: 6
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1577ce291100179b0800000000000000
+      internalID: -5084282428845164719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sam_lower_arm
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 20
+        width: 6
+        height: 12
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c1fdfea65695bd0800000000000000
+      internalID: -2640968196510770157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sam_foot
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 12
+        width: 9
+        height: 4
       alignment: 9
-      pivot: {x: 0.50000024, y: 0.87163496}
+      pivot: {x: 0.35, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f230114e1079ea310800000000000000
+      internalID: 1418236967045366575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sam_hand
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 10
+        width: 6
+        height: 6
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fbe9903c0308ba10800000000000000
+      internalID: 1925292191590771698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sam_eye_02
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 44
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91af81ad5001cd8468cb8d801f3ac4a4
-      internalID: -253929857
+      spriteID: ac4ec2917463a774cb662b25e039e722
+      internalID: 757068503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sam_eye_03
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 28
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9997722397c6a4687320e66dc57f14
+      internalID: -1476938698
       vertices: []
       indices: 
       edges: []
@@ -322,7 +419,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7ee0bdde96af1c243ab9d83c0e6af09e
+    spriteID: e8965afc3ad0f3444b91cb2ba796ad95
     internalID: 0
     vertices: []
     indices: 
@@ -330,19 +427,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Foot: -253929857
-      Hand: 4384804010727303751
-      Head: 1946111706206282903
-      LowerArm: 7288356438909664116
-      LowerLeg: 5732013848416835975
-      LowerTorso: 7783826343357641294
-      UpperArm: 3422121503641754009
-      UpperLeg: 7543964781638743459
-      UpperTorso: -4135564625000542049
+      sam_eye_01: 2698167402151498012
+      sam_eye_02: 757068503
+      sam_eye_03: -1476938698
+      sam_foot: 1418236967045366575
+      sam_hair: 939537763808407826
+      sam_hand: 1925292191590771698
+      sam_head: 1146302909237140331
+      sam_lower_arm: -2640968196510770157
+      sam_lower_leg: 1923110908681159031
+      sam_lower_torso: -568724858850205694
+      sam_upper_arm: -5084282428845164719
+      sam_upper_leg: 8004978069353379489
+      sam_upper_torso: 7377085340025233785
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

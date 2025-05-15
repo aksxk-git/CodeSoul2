@@ -32,4 +32,9 @@ public class Player : Entity
         if (movement.x > 0 || movement.x < 0) animator.SetBool("IsMoving", true);
         else animator.SetBool("IsMoving", false);
     }
+
+    void FlipSelf()
+    {
+        
+    }
 }
