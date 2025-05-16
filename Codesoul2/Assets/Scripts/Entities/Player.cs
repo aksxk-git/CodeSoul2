@@ -4,6 +4,7 @@ public class Player : Entity
 {
     // Movement Vector
     Vector2 movement;
+    bool facingRight = true;
 
     private void Start()
     {
@@ -14,6 +15,7 @@ public class Player : Entity
     private void Update()
     {
         Animate();
+        FlipSelf();
     }
 
     private void FixedUpdate()
@@ -35,6 +37,10 @@ public class Player : Entity
 
     void FlipSelf()
     {
-        
+        if(movement.x > 0) facingRight = true;
+        if(movement.x < 0) facingRight = false;
+
+        if (facingRight) transform.localScale = new Vector2(1, 1);
+        else transform.localScale = new Vector2(-1, 1);
     }
 }
