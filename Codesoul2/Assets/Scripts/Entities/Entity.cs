@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour
     // Entity Components
     protected Rigidbody2D rb2D;
     protected Animator animator;
+
     // Entity Variables
     private float health = 100.0f;
     private float speed = 100.0f;

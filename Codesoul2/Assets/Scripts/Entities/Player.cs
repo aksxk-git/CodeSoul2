@@ -1,4 +1,5 @@
 using Unity.Multiplayer.Center.Common;
+using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
@@ -17,6 +18,14 @@ public class Player : Entity
 
     Vector3 mousePosition;
     Vector3 direction;
+
+    // Weaponry
+    Weapon firstWeapon;
+    Weapon secondWeapon;
+
+    // Weapon Animator
+    [SerializeField] RuntimeAnimatorController controller1;
+    [SerializeField] RuntimeAnimatorController controller2;
 
     // Player components
     [SerializeField] GameObject head;
@@ -49,6 +58,16 @@ public class Player : Entity
         {
             walkingBackward = false;
         }
+
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            animator.runtimeAnimatorController = controller1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            animator.runtimeAnimatorController = controller2;
+        }
     }
 
     private void FixedUpdate()
@@ -63,7 +82,7 @@ public class Player : Entity
         rb2D.linearVelocity = new Vector2(movement.x * GetSpeed() * Time.deltaTime, 0);
 
         // Sprinting
-        if(Input.GetKey(KeyCode.LeftShift) && IsMoving())
+        if (Input.GetKey(KeyCode.LeftShift) && IsMoving())
         {
             sprinting = true;
             SetSpeed(200);
@@ -107,7 +126,7 @@ public class Player : Entity
 
             // Show weapon in hand and hide back weapon
             weaponInHand.SetActive(true);
-            weaponOnBack.SetActive(false);
+            //weaponOnBack.SetActive(false);
         }
             
         if (Input.GetKey(KeyCode.Alpha2))
@@ -117,7 +136,7 @@ public class Player : Entity
 
             // Show weapon in hand and hide back weapon
             weaponInHand.SetActive(false);
-            weaponOnBack.SetActive(true);
+            //weaponOnBack.SetActive(true);
         }
     }
 
@@ -178,7 +197,6 @@ public class Player : Entity
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        head.transform.rotation = Quaternion.Euler(0, 0, angle);
         arms.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
@@ -187,5 +205,25 @@ public class Player : Entity
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         head.transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    void UpdateWeaponry()
+    {
+        if (DoesPlayerHaveAWeapon())
+        {
+
+        }
+    }
+
+    bool DoesPlayerHaveAWeapon()
+    {
+        if (firstWeapon != null || secondWeapon != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
