@@ -20,8 +20,8 @@ public class Player : Entity
     Vector3 direction;
 
     // Weaponry
-    Weapon firstWeapon;
-    Weapon secondWeapon;
+    [SerializeField] Weapon firstWeapon;
+    [SerializeField] Weapon secondWeapon;
 
     // Weapon Animator
     [SerializeField] RuntimeAnimatorController controller1;
