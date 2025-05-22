@@ -59,7 +59,7 @@ public class Player : Entity
             walkingBackward = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             animator.runtimeAnimatorController = controller1;
         }
@@ -67,6 +67,17 @@ public class Player : Entity
         if (Input.GetKeyDown(KeyCode.P))
         {
             animator.runtimeAnimatorController = controller2;
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Damage(10);
+            Debug.Log(GetHealth());
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("HasFiredWeapon");
         }
     }
 
@@ -196,14 +207,12 @@ public class Player : Entity
     void MoveGunAndArms()
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
         arms.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     void MoveHead()
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
         head.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 

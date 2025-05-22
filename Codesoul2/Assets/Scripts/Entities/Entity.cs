@@ -37,4 +37,9 @@ public class Entity : MonoBehaviour
     {
         return this.speed;
     }
+
+    protected void Damage(float damage)
+    {
+        this.health -= damage;
+    }
 }
