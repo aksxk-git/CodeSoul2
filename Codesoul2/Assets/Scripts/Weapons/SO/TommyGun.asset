@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95022fb1f83dcf544a9d99061cfc56ea, type: 3}
+  m_Name: TommyGun
+  m_EditorClassIdentifier: 
+  weaponSprite: {fileID: 1188552420777440151, guid: 6fb4e00b8b072b741a105921dbded5c1, type: 3}
+  damage: 0
+  ammoInMag: 0
+  maxMagAmount: 0
+  reloadTime: 0
+  isHandGun: 0
+  weaponAnimOverride: {fileID: 22100000, guid: 0215bddde7142fa41a79d74868cbcd97, type: 2}

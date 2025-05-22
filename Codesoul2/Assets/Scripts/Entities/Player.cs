@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    // Movement Vector
+    // Movement
     Vector2 movement;
     bool facingRight = true;
     bool sprinting = false;
@@ -19,24 +19,25 @@ public class Player : Entity
     Vector3 mousePosition;
     Vector3 direction;
 
-    // Weaponry
-    [SerializeField] Weapon firstWeapon;
-    [SerializeField] Weapon secondWeapon;
-
-    // Weapon Animator
-    [SerializeField] RuntimeAnimatorController controller1;
-    [SerializeField] RuntimeAnimatorController controller2;
+    // Weapon slots
+    [SerializeField] Weapon oneHandedGun;
+    [SerializeField] Weapon twoHandedGun;
 
     // Player components
     [SerializeField] GameObject head;
     [SerializeField] GameObject arms;
-    [SerializeField] GameObject weaponInHand;
-    [SerializeField] GameObject weaponOnBack;
+
+    // Weapon placements
+    [SerializeField] GameObject weaponInHand; // Show current equipped weapon
+    [SerializeField] GameObject weaponOnBack; // For larger two handed weapons
+    [SerializeField] GameObject weaponOnHip; // For one handed small weapons
 
     private void Start()
     {
         SetHealth(100);
         SetSpeed(100);
+
+        animator.runtimeAnimatorController = oneHandedGun.weaponAnimOverride;
     }
 
     private void Update()
@@ -44,6 +45,7 @@ public class Player : Entity
         Animate();
         FlipSelf();
         MoveHead();
+        UpdateWeaponry();
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = mousePosition - transform.position;
@@ -57,16 +59,6 @@ public class Player : Entity
         else
         {
             walkingBackward = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            animator.runtimeAnimatorController = controller1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            animator.runtimeAnimatorController = controller2;
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -132,22 +124,17 @@ public class Player : Entity
         // Set animator layer weights
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            animator.SetLayerWeight(1, 1);
-            weaponEquipped = true;
-
-            // Show weapon in hand and hide back weapon
-            weaponInHand.SetActive(true);
-            //weaponOnBack.SetActive(false);
+            EquipOneHandedWeapon();
         }
             
         if (Input.GetKey(KeyCode.Alpha2))
         {
-            animator.SetLayerWeight(1, 0);
-            weaponEquipped = false;
+            EquipTwoHandedWeapon();
+        }
 
-            // Show weapon in hand and hide back weapon
-            weaponInHand.SetActive(false);
-            //weaponOnBack.SetActive(true);
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            DeEquip();
         }
     }
 
@@ -218,15 +205,20 @@ public class Player : Entity
 
     void UpdateWeaponry()
     {
-        if (DoesPlayerHaveAWeapon())
+        // Set weapon sprites
+        if (DoesPlayerHaveAOneHandedWeapon())
         {
-
+            weaponOnHip.GetComponent<SpriteRenderer>().sprite = oneHandedGun.weaponSprite;
+        }
+        if (DoesPlayerHaveATwoHandedWeapon())
+        {
+            weaponOnBack.GetComponent<SpriteRenderer>().sprite = twoHandedGun.weaponSprite;
         }
     }
 
     bool DoesPlayerHaveAWeapon()
     {
-        if (firstWeapon != null || secondWeapon != null)
+        if (oneHandedGun != null || twoHandedGun != null)
         {
             return true;
         }
@@ -234,5 +226,62 @@ public class Player : Entity
         {
             return false;
         }
+    }
+
+    bool DoesPlayerHaveATwoHandedWeapon()
+    {
+        if (twoHandedGun != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool DoesPlayerHaveAOneHandedWeapon()
+    {
+        if (oneHandedGun != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void EquipOneHandedWeapon()
+    {
+        animator.SetLayerWeight(1, 1);
+        weaponEquipped = true;    
+        weaponInHand.SetActive(true);
+        weaponOnBack.SetActive(true);
+        weaponInHand.GetComponent<SpriteRenderer>().sprite = oneHandedGun.weaponSprite;
+        weaponOnHip.SetActive(false);
+        animator.runtimeAnimatorController = oneHandedGun.weaponAnimOverride;
+    }
+
+    void EquipTwoHandedWeapon()
+    {
+        animator.SetLayerWeight(1, 1);
+        weaponEquipped = true;
+        weaponInHand.SetActive(true);
+        weaponOnBack.SetActive(false);
+        weaponInHand.GetComponent<SpriteRenderer>().sprite = twoHandedGun.weaponSprite;
+        weaponOnHip.SetActive(true);
+        animator.runtimeAnimatorController = twoHandedGun.weaponAnimOverride;
+    }
+
+    void DeEquip()
+    {
+        animator.SetLayerWeight(1, 0);
+        weaponEquipped = false;
+        weaponInHand.SetActive(false);
+        weaponOnBack.SetActive(true);
+        weaponInHand.GetComponent<SpriteRenderer>().sprite = twoHandedGun.weaponSprite;
+        weaponOnHip.SetActive(true);
+        animator.runtimeAnimatorController = twoHandedGun.weaponAnimOverride;
     }
 }

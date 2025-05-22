@@ -1,49 +1,16 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+[CreateAssetMenu(fileName = "NewWeaponData", menuName = "ScriptableObjects/WeaponData")]
+public class Weapon : ScriptableObject
 {
     // Weapon Properties
-    protected double damage; // Amount of damage that the gun creates
-    protected int ammoInMag; // How many bullets are currently in the mag
-    protected int maxMagAmount; // How many bullets can be stored in the gun
-    protected float reloadTime; // How long it takes to reload the gun
-    
+    public Sprite weaponSprite;
+    public double damage; // Amount of damage that the gun creates
+    public int ammoInMag; // How many bullets are currently in the mag
+    public int maxMagAmount; // How many bullets can be stored in the gun
+    public float reloadTime; // How long it takes to reload the gun
+    public bool isHandGun; // Determine where we should place the gun on the hip or back of the character
+
     // Weapon Components
-    protected RuntimeAnimatorController weaponAnimOverride;
-
-    protected void SetWeaponDamage(float damage)
-    {
-        this.damage = damage;
-    }
-
-    protected double GetWeaponDamage()
-    {
-        return this.damage;
-    }
-
-    protected void SetWeaponMaxMagAmount(int maxMagAmount)
-    {
-        this.maxMagAmount = maxMagAmount;
-        this.ammoInMag = maxMagAmount;
-    }
-
-    protected void SetWeaponReloadTime(float reloadTime)
-    {
-        this.reloadTime = reloadTime;
-    }
-
-    protected float GetWeaponReloadTime()
-    {
-        return this.reloadTime;
-    }
-
-    protected void SetWeaponOverride(RuntimeAnimatorController weaponAnimOverride)
-    {
-        this.weaponAnimOverride = weaponAnimOverride;
-    }
-
-    protected RuntimeAnimatorController GetWeaponOverride()
-    {
-        return this.weaponAnimOverride;
-    }
+    public RuntimeAnimatorController weaponAnimOverride;
 }
