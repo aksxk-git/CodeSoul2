@@ -32,12 +32,16 @@ public class Player : Entity
     [SerializeField] GameObject weaponOnBack; // For larger two handed weapons
     [SerializeField] GameObject weaponOnHip; // For one handed small weapons
 
+    // Default animator
+    RuntimeAnimatorController defaultController;
+
     private void Start()
     {
         SetHealth(100);
         SetSpeed(100);
 
-        animator.runtimeAnimatorController = oneHandedGun.weaponAnimOverride;
+        defaultController = animator.runtimeAnimatorController;
+
     }
 
     private void Update()
@@ -46,30 +50,22 @@ public class Player : Entity
         FlipSelf();
         MoveHead();
         UpdateWeaponry();
+        WalkBackwards();
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = mousePosition - transform.position;
 
         if (weaponEquipped) MoveGunAndArms();
 
-        if (facingRight && movement.x < 0 || !facingRight && movement.x > 0)
+        
+
+        if (Input.GetMouseButton(0))
         {
-            walkingBackward = true;
+            animator.SetBool("IsShooting", true);    
         }
         else
         {
-            walkingBackward = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Damage(10);
-            Debug.Log(GetHealth());
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            animator.SetTrigger("HasFiredWeapon");
+            animator.SetBool("IsShooting", false);
         }
     }
 
@@ -95,12 +91,6 @@ public class Player : Entity
             sprinting = false;
             SetSpeed(100);
         }
-
-        // Slow Down
-        if(walkingBackward)
-        {
-            SetSpeed(50);
-        }
     }
 
     void Animate()
@@ -122,12 +112,12 @@ public class Player : Entity
         animator.SetFloat("BlinkTimer", blinkTimer);
 
         // Set animator layer weights
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.Alpha1) && DoesPlayerHaveAOneHandedWeapon())
         {
             EquipOneHandedWeapon();
         }
             
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Input.GetKey(KeyCode.Alpha2) && DoesPlayerHaveATwoHandedWeapon())
         {
             EquipTwoHandedWeapon();
         }
@@ -189,6 +179,24 @@ public class Player : Entity
     {
         if (movement.x > 0 || movement.x < 0) return true;
         else return false;
+    }
+
+    void WalkBackwards()
+    {
+        // Check if player is walking backwards
+        if (facingRight && movement.x < 0 || !facingRight && movement.x > 0)
+        {
+            walkingBackward = true;
+        }
+        else
+        {
+            walkingBackward = false;
+        }
+        // Slow down player if walking backwards
+        if (walkingBackward)
+        {
+            SetSpeed(50);
+        }
     }
 
     void MoveGunAndArms()
@@ -254,7 +262,7 @@ public class Player : Entity
 
     void EquipOneHandedWeapon()
     {
-        animator.SetLayerWeight(1, 1);
+        animator.SetLayerWeight(2, 1);
         weaponEquipped = true;    
         weaponInHand.SetActive(true);
         weaponOnBack.SetActive(true);
@@ -265,7 +273,7 @@ public class Player : Entity
 
     void EquipTwoHandedWeapon()
     {
-        animator.SetLayerWeight(1, 1);
+        animator.SetLayerWeight(2, 1);
         weaponEquipped = true;
         weaponInHand.SetActive(true);
         weaponOnBack.SetActive(false);
@@ -276,12 +284,11 @@ public class Player : Entity
 
     void DeEquip()
     {
-        animator.SetLayerWeight(1, 0);
+        animator.SetLayerWeight(2, 0);
         weaponEquipped = false;
         weaponInHand.SetActive(false);
         weaponOnBack.SetActive(true);
-        weaponInHand.GetComponent<SpriteRenderer>().sprite = twoHandedGun.weaponSprite;
         weaponOnHip.SetActive(true);
-        animator.runtimeAnimatorController = twoHandedGun.weaponAnimOverride;
+        //animator.runtimeAnimatorController = defaultController;
     }
 }
