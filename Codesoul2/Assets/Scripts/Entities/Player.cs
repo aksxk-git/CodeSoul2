@@ -11,6 +11,7 @@ public class Player : Entity
     bool sprinting = false;
     bool weaponEquipped = false;
     bool walkingBackward = false;
+    bool crouched = false;
 
     // Blinking
     float blinkTime = 5; // Every 5 seconds the player blinks
@@ -66,6 +67,17 @@ public class Player : Entity
         else
         {
             animator.SetBool("IsShooting", false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftControl) && !crouched)
+        {
+            crouched = true;
+            Crouch();
+        }
+        else if(Input.GetKeyDown(KeyCode.LeftControl) && crouched)
+        {
+            crouched = false;
+            UnCrouch();
         }
     }
 
@@ -290,5 +302,15 @@ public class Player : Entity
         weaponOnBack.SetActive(true);
         weaponOnHip.SetActive(true);
         //animator.runtimeAnimatorController = defaultController;
+    }
+
+    void Crouch()
+    {
+        animator.SetLayerWeight(1, 1);
+    }
+
+    void UnCrouch()
+    {
+        animator.SetLayerWeight(1, 0);
     }
 }
