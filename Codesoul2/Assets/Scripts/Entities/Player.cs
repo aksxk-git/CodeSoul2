@@ -60,11 +60,11 @@ public class Player : Entity
 
         
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("IsShooting", true);
 
-            float rayLength = 10f; // Set a fixed length for your ray
+            float rayLength = 15f; // Set a fixed length for your ray
             Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction * rayLength, rayLength, LayerMask.GetMask("Shootable"));
 
