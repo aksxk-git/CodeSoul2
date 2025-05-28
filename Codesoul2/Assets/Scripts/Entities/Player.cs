@@ -27,6 +27,7 @@ public class Player : Entity
     // Player components
     [SerializeField] GameObject head;
     [SerializeField] GameObject arms;
+    [SerializeField] GameObject weaponFirepoint;
 
     // Weapon placements
     [SerializeField] GameObject weaponInHand; // Show current equipped weapon
@@ -65,14 +66,14 @@ public class Player : Entity
             animator.SetBool("IsShooting", true);
 
             float rayLength = 15f; // Set a fixed length for your ray
-            Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction * rayLength, rayLength, LayerMask.GetMask("Shootable"));
+            Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - weaponFirepoint.transform.position).normalized;
+            RaycastHit2D hit = Physics2D.Raycast(weaponFirepoint.transform.position, direction * rayLength, rayLength, LayerMask.GetMask("Shootable"));
 
             // If it hits something...
             if (hit)
             {
                 Debug.Log(hit.collider.name);
-                Debug.DrawRay(transform.position, direction * hit.distance, Color.green, 0.1f);
+                Debug.DrawRay(weaponFirepoint.transform.position, direction * rayLength, Color.green, 0.1f);
             }
         }
         else
