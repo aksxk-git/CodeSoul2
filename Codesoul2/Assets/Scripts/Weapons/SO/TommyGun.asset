@@ -17,5 +17,6 @@ MonoBehaviour:
   ammoInMag: 0
   maxMagAmount: 0
   reloadTime: 0
+  firerate: 0.1
   isHandGun: 0
   weaponAnimOverride: {fileID: 22100000, guid: 0215bddde7142fa41a79d74868cbcd97, type: 2}
