@@ -99,6 +99,8 @@ GameObject:
   - component: {fileID: 819661229514967665}
   - component: {fileID: 204575475004590528}
   - component: {fileID: 1054063016561229533}
+  - component: {fileID: 5556732325097330894}
+  - component: {fileID: 5646835523017376381}
   m_Layer: 0
   m_Name: Sam
   m_TagString: Untagged
@@ -198,14 +200,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5f3eccab4495f43a4d3798e54f57f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oneHandedGun: {fileID: 11400000, guid: d6a35a0728102fd45b7ea9d1ab09a6ee, type: 2}
-  twoHandedGun: {fileID: 11400000, guid: 6296d704c77848042a32466fd14c13f7, type: 2}
+  animator: {fileID: 3087186486489125637}
+  isFacingRight: 1
+  isSprinting: 0
+  isWalkingBackward: 0
+  isCrouched: 0
+  isWeaponEquipped: 0
   head: {fileID: 7221549060217985374}
   arms: {fileID: 7781943489564628684}
+--- !u!114 &5556732325097330894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269339301091702496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db95f02255927f14b924cb0b8d73f34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1054063016561229533}
+  weaponManager: {fileID: 5646835523017376381}
+--- !u!114 &5646835523017376381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269339301091702496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf96f3e7fbdc1e4ead2bfb83fbc9768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1054063016561229533}
   weaponFirepoint: {fileID: 41542858920219640}
   weaponInHand: {fileID: 8606469855212178560}
   weaponOnBack: {fileID: 6244127213737973128}
   weaponOnHip: {fileID: 3420506380855723715}
+  currentHeldWeapon: {fileID: 0}
+  oneHandedGun: {fileID: 11400000, guid: d6a35a0728102fd45b7ea9d1ab09a6ee, type: 2}
+  twoHandedGun: {fileID: 11400000, guid: 6296d704c77848042a32466fd14c13f7, type: 2}
+  head: {fileID: 7221549060217985374}
+  arms: {fileID: 7781943489564628684}
 --- !u!1 &559239148334112905
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +958,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 12
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
