@@ -23,6 +23,9 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] GameObject head;
     [SerializeField] GameObject arms;
 
+    // Float
+    float gunTimer;
+
     private void Start()
     {
         defaultController = player.animator.runtimeAnimatorController;
@@ -30,7 +33,6 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        FireWeapon();
         UpdateWeaponry();
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -47,27 +49,42 @@ public class WeaponManager : MonoBehaviour
         {
             DeEquip();
         }
+
+        if (currentHeldWeapon != null)
+        {
+            if (gunTimer > currentHeldWeapon.firerate)
+            {
+                gunTimer = currentHeldWeapon.firerate;
+            }
+            else
+            {
+                gunTimer += Time.deltaTime;
+            }
+
+            if (Input.GetMouseButton(0) && gunTimer >= currentHeldWeapon.firerate)
+            {
+                gunTimer = 0;
+                FireWeapon();
+            }
+            else
+            {
+                player.animator.SetBool("IsShooting", false);
+            }
+        }
     }
 
     public void FireWeapon()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            player.animator.SetBool("IsShooting", true);
+        player.animator.SetBool("IsShooting", true);
 
-            float rayLength = 15f; // Set a fixed length for your ray
-            Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - weaponFirepoint.transform.position).normalized;
-            RaycastHit2D hit = Physics2D.Raycast(weaponFirepoint.transform.position, direction * rayLength, rayLength, LayerMask.GetMask("Shootable"));
+        float rayLength = 15f; // Set a fixed length for your ray
+        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - weaponFirepoint.transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(weaponFirepoint.transform.position, direction * rayLength, rayLength, LayerMask.GetMask("Shootable"));
 
-            if (hit)
-            {
-                Debug.Log(hit.collider.name);
-                Debug.DrawRay(weaponFirepoint.transform.position, direction * rayLength, Color.green, 0.1f);
-            }
-        }
-        else
+        if (hit)
         {
-            player.animator.SetBool("IsShooting", false);
+            Debug.Log(hit.collider.name);
+            Debug.DrawRay(weaponFirepoint.transform.position, direction * rayLength, Color.green, 0.1f);
         }
     }
 
@@ -130,6 +147,8 @@ public class WeaponManager : MonoBehaviour
         weaponOnBack.SetActive(true);
         weaponOnHip.SetActive(false);
         player.animator.runtimeAnimatorController = oneHandedGun.weaponAnimOverride;
+        // Set held weapon
+        currentHeldWeapon = oneHandedGun;
     }
 
     void EquipTwoHandedWeapon()
@@ -142,6 +161,8 @@ public class WeaponManager : MonoBehaviour
         weaponOnBack.SetActive(false);
         weaponOnHip.SetActive(true);
         player.animator.runtimeAnimatorController = twoHandedGun.weaponAnimOverride;
+        // Set held weapon
+        currentHeldWeapon = twoHandedGun;
     }
 
     void DeEquip()
