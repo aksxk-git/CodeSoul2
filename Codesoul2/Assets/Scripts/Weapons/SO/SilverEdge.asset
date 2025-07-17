@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SilverEdge
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 4628462861584378302, guid: d1ccb2a3876567c4995629e3a8a338e8, type: 3}
+  weaponImage: {fileID: 0}
+  weaponName: SE-24
   damage: 0
   ammoInMag: 0
   maxMagAmount: 0

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    // Reference to UI
+    [SerializeField] WeaponUI weaponUI;
+
     // Entity
     [SerializeField] Player player;
     RuntimeAnimatorController defaultController;
@@ -149,6 +152,8 @@ public class WeaponManager : MonoBehaviour
         player.animator.runtimeAnimatorController = oneHandedGun.weaponAnimOverride;
         // Set held weapon
         currentHeldWeapon = oneHandedGun;
+        // Update UI
+        weaponUI.UpdateWeaponUI(currentHeldWeapon);
     }
 
     void EquipTwoHandedWeapon()
@@ -163,6 +168,8 @@ public class WeaponManager : MonoBehaviour
         player.animator.runtimeAnimatorController = twoHandedGun.weaponAnimOverride;
         // Set held weapon
         currentHeldWeapon = twoHandedGun;
+        // Update UI
+        weaponUI.UpdateWeaponUI(currentHeldWeapon);
     }
 
     void DeEquip()

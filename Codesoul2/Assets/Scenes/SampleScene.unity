@@ -627,8 +627,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.749}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -88.6, y: -1.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -26, y: 14.282934}
+  m_SizeDelta: {x: 70.2887, y: 64.6836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449683632
 MonoBehaviour:
@@ -702,8 +702,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.1, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 68.57424, y: 15.253235}
+  m_SizeDelta: {x: 140.5773, y: 32.3418}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &627890879
 MonoBehaviour:
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 6.022583, y: 0, z: -16.633911, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -843,8 +843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: 1}
-  m_SizeDelta: {x: 323.854, y: 110.4118}
+  m_AnchoredPosition: {x: 38.2, y: 14.283}
+  m_SizeDelta: {x: 260.7173, y: 90.1185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881976841
 MonoBehaviour:
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3633,6 +3633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 995104824}
+  - component: {fileID: 995104825}
   m_Layer: 5
   m_Name: WeaponUI
   m_TagString: Untagged
@@ -3662,6 +3663,20 @@ RectTransform:
   m_AnchoredPosition: {x: 378, y: 263}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &995104825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995104823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207bddc850735cc45bd2b1caad6c2909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponImage: {fileID: 449683632}
+  weaponText: {fileID: 627890879}
 --- !u!1 &1444571601
 GameObject:
   m_ObjectHideFlags: 0
@@ -5414,6 +5429,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5646835523017376381, guid: 7b857ee6fdd5b2f498c7ea305c762d6a, type: 3}
+      propertyPath: weaponUI
+      value: 
+      objectReference: {fileID: 995104825}
     - target: {fileID: 6400805888732286943, guid: 7b857ee6fdd5b2f498c7ea305c762d6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
