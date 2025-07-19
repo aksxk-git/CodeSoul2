@@ -154,6 +154,8 @@ public class WeaponManager : MonoBehaviour
         currentHeldWeapon = oneHandedGun;
         // Update UI
         weaponUI.UpdateWeaponUI(currentHeldWeapon);
+        gunTimer = currentHeldWeapon.firerate;
+        player.animator.SetFloat("ShootingSpeed", 1f);
     }
 
     void EquipTwoHandedWeapon()
@@ -170,6 +172,8 @@ public class WeaponManager : MonoBehaviour
         currentHeldWeapon = twoHandedGun;
         // Update UI
         weaponUI.UpdateWeaponUI(currentHeldWeapon);
+        gunTimer = currentHeldWeapon.firerate;
+        player.animator.SetFloat("ShootingSpeed", 3.5f);
     }
 
     void DeEquip()
