@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour
     // Entity Components
     protected Rigidbody2D rb2D;
     public Animator animator;
+    public GameObject groundChecker;
 
     // Entity Variables
     private float health = 100.0f;
@@ -41,5 +42,31 @@ public class Entity : MonoBehaviour
     protected void Damage(float damage)
     {
         this.health -= damage;
+    }
+
+    protected void CheckGround(bool facingRight)
+    {
+        if(facingRight)
+        {
+            float rayLength = 1; // Set a fixed length for your ray
+            RaycastHit2D hit = Physics2D.Raycast(groundChecker.transform.position, Vector2.right * rayLength, rayLength, LayerMask.GetMask("Ground"));
+
+            if (hit)
+            {
+                Debug.Log(hit.transform.name);
+                gameObject.transform.position = new Vector2(gameObject.transform.position.x, hit.point.y);
+            }
+        }
+        else
+        {
+            float rayLength = 1; // Set a fixed length for your ray
+            RaycastHit2D hit = Physics2D.Raycast(groundChecker.transform.position, Vector2.left * rayLength, rayLength, LayerMask.GetMask("Ground"));
+
+            if (hit)
+            {
+                Debug.Log(hit.transform.name);
+                gameObject.transform.position = new Vector2(gameObject.transform.position.x, hit.point.y);
+            }
+        }
     }
 }

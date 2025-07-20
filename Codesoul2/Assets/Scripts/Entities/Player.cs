@@ -72,6 +72,8 @@ public class Player : Entity
             isSprinting = false;
             SetSpeed(100);
         }
+
+        CheckGround(isFacingRight);
     }
 
     void FlipSelf()
