@@ -6,7 +6,8 @@ public class Entity : MonoBehaviour
     // Entity Components
     protected Rigidbody2D rb2D;
     public Animator animator;
-    public GameObject groundChecker;
+    public GameObject groundCheckerRight;
+    public GameObject groundCheckerLeft;
 
     // Entity Variables
     private float health = 100.0f;
@@ -48,24 +49,25 @@ public class Entity : MonoBehaviour
     {
         if(facingRight)
         {
-            float rayLength = 1; // Set a fixed length for your ray
-            RaycastHit2D hit = Physics2D.Raycast(groundChecker.transform.position, Vector2.right * rayLength, rayLength, LayerMask.GetMask("Ground"));
+            float rayLength = 1f; // Set a fixed length for your ray
+            RaycastHit2D hit = Physics2D.Raycast(groundCheckerRight.transform.position, Vector2.right * rayLength, rayLength, LayerMask.GetMask("Ground"));
 
             if (hit)
             {
                 Debug.Log(hit.transform.name);
-                gameObject.transform.position = new Vector2(gameObject.transform.position.x, hit.point.y);
+                gameObject.transform.position += new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + hit.point.y, 0) * Time.deltaTime;
             }
+
         }
         else
         {
-            float rayLength = 1; // Set a fixed length for your ray
-            RaycastHit2D hit = Physics2D.Raycast(groundChecker.transform.position, Vector2.left * rayLength, rayLength, LayerMask.GetMask("Ground"));
+            float rayLength = 1f; // Set a fixed length for your ray
+            RaycastHit2D hit = Physics2D.Raycast(groundCheckerLeft.transform.position, -Vector2.right * rayLength, rayLength, LayerMask.GetMask("Ground"));
 
             if (hit)
             {
                 Debug.Log(hit.transform.name);
-                gameObject.transform.position = new Vector2(gameObject.transform.position.x, hit.point.y);
+                gameObject.transform.position += new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - hit.point.y, 0) * Time.deltaTime;
             }
         }
     }
