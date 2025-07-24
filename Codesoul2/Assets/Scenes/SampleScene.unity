@@ -296,7 +296,7 @@ Transform:
   m_GameObject: {fileID: 344035056}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.206, y: -3.262, z: 0}
+  m_LocalPosition: {x: 0, y: -3.282, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -671,7 +671,7 @@ Transform:
   m_GameObject: {fileID: 1043060338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.133, y: -3.262, z: 0}
+  m_LocalPosition: {x: 0, y: -3.283, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1223,7 +1223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2080489399}
   - component: {fileID: 2080489398}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WoodenStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1294,7 +1294,7 @@ Transform:
   m_GameObject: {fileID: 2080489397}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.772, y: 4.3445, z: 0}
+  m_LocalPosition: {x: 11.772, y: 4.449, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1311,6 +1311,14 @@ PrefabInstance:
     - target: {fileID: 269339301091702496, guid: 7b857ee6fdd5b2f498c7ea305c762d6a, type: 3}
       propertyPath: m_Name
       value: Sam
+      objectReference: {fileID: 0}
+    - target: {fileID: 819661229514967665, guid: 7b857ee6fdd5b2f498c7ea305c762d6a, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3498574
+      objectReference: {fileID: 0}
+    - target: {fileID: 819661229514967665, guid: 7b857ee6fdd5b2f498c7ea305c762d6a, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0015049577
       objectReference: {fileID: 0}
     - target: {fileID: 1054063016561229533, guid: 7b857ee6fdd5b2f498c7ea305c762d6a, type: 3}
       propertyPath: groundChecker

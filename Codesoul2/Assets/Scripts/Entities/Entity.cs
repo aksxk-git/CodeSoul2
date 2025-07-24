@@ -47,28 +47,22 @@ public class Entity : MonoBehaviour
 
     protected void CheckGround(bool facingRight)
     {
-        if(facingRight)
+        float rayLengthRight = 1f; // Set a fixed length for your ray
+        RaycastHit2D hitRight = Physics2D.Raycast(groundCheckerRight.transform.position, Vector2.right * rayLengthRight, rayLengthRight, LayerMask.GetMask("Ground"));
+
+        if (hitRight)
         {
-            float rayLength = 1f; // Set a fixed length for your ray
-            RaycastHit2D hit = Physics2D.Raycast(groundCheckerRight.transform.position, Vector2.right * rayLength, rayLength, LayerMask.GetMask("Ground"));
-
-            if (hit)
-            {
-                Debug.Log(hit.transform.name);
-                gameObject.transform.position += new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + hit.point.y, 0) * Time.deltaTime;
-            }
-
+            Debug.Log(hitRight.transform.name);
+            gameObject.transform.position += new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + hitRight.point.y, 0) * Time.deltaTime;
         }
-        else
-        {
-            float rayLength = 1f; // Set a fixed length for your ray
-            RaycastHit2D hit = Physics2D.Raycast(groundCheckerLeft.transform.position, -Vector2.right * rayLength, rayLength, LayerMask.GetMask("Ground"));
 
-            if (hit)
-            {
-                Debug.Log(hit.transform.name);
-                gameObject.transform.position += new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - hit.point.y, 0) * Time.deltaTime;
-            }
+        float rayLengthLeft = 1f; // Set a fixed length for your ray
+        RaycastHit2D hitLeft = Physics2D.Raycast(groundCheckerLeft.transform.position, Vector2.left * rayLengthLeft, rayLengthLeft, LayerMask.GetMask("Ground"));
+
+        if (hitLeft)
+        {
+            Debug.Log(hitLeft.transform.name);
+            gameObject.transform.position += new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + hitLeft.point.y, 0) * Time.deltaTime;
         }
     }
 }
