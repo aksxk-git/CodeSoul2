@@ -8,10 +8,12 @@ public class Entity : MonoBehaviour
     public Animator animator;
     public GameObject groundCheckerRight;
     public GameObject groundCheckerLeft;
+    public GameObject rig;
 
     // Entity Variables
     private float health = 100.0f;
     private float speed = 100.0f;
+    protected bool facingRight = true;
 
     private void Awake()
     {
@@ -40,6 +42,16 @@ public class Entity : MonoBehaviour
         return this.speed;
     }
 
+    protected void SetFacingRight(bool isFacingRight)
+    {
+        this.facingRight = isFacingRight;
+    }
+
+    protected bool GetFacingRight()
+    {
+        return this.facingRight;
+    }
+
     protected void Damage(float damage)
     {
         this.health -= damage;
@@ -47,22 +59,22 @@ public class Entity : MonoBehaviour
 
     protected void CheckGround(bool facingRight)
     {
-        float rayLengthRight = 1f; // Set a fixed length for your ray
+        float rayLengthRight = 0.5f; // Set a fixed length for your ray
         RaycastHit2D hitRight = Physics2D.Raycast(groundCheckerRight.transform.position, Vector2.right * rayLengthRight, rayLengthRight, LayerMask.GetMask("Ground"));
 
-        if (hitRight)
+        if (hitRight && facingRight)
         {
             Debug.Log(hitRight.transform.name);
-            gameObject.transform.position += new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + hitRight.point.y, 0) * Time.deltaTime;
+            gameObject.transform.position += new Vector3(5, gameObject.transform.position.y + hitRight.point.y, 0) * Time.deltaTime;
         }
 
-        float rayLengthLeft = 1f; // Set a fixed length for your ray
+        float rayLengthLeft = 0.5f; // Set a fixed length for your ray
         RaycastHit2D hitLeft = Physics2D.Raycast(groundCheckerLeft.transform.position, Vector2.left * rayLengthLeft, rayLengthLeft, LayerMask.GetMask("Ground"));
 
-        if (hitLeft)
+        if (hitLeft && !facingRight)
         {
             Debug.Log(hitLeft.transform.name);
-            gameObject.transform.position += new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + hitLeft.point.y, 0) * Time.deltaTime;
+            gameObject.transform.position += new Vector3(-5, gameObject.transform.position.y + hitLeft.point.y, 0) * Time.deltaTime;
         }
     }
 }

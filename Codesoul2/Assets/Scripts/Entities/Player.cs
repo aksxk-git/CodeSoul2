@@ -7,7 +7,6 @@ public class Player : Entity
 {
     // Movement
     Vector2 movement;
-    public bool isFacingRight = true;
     public bool isSprinting = false;
     public bool isWalkingBackward = false;
     public bool isCrouched = false;
@@ -73,7 +72,7 @@ public class Player : Entity
             SetSpeed(100);
         }
 
-        CheckGround(isFacingRight);
+        CheckGround(GetFacingRight());
     }
 
     void FlipSelf()
@@ -81,21 +80,21 @@ public class Player : Entity
         // Check which direction the player is facing
         if (direction.x > 0)
         {
-            isFacingRight = true;
+            SetFacingRight(true);
         }
         else
         {
-            isFacingRight = false;
+            SetFacingRight(false);
         }
 
         // Then flip the player, arms and weapon
-        if (isFacingRight)
+        if (GetFacingRight())
         {
             if (isWeaponEquipped)
             {
                 arms.transform.localScale = new Vector2(1, 1);
             }
-            transform.localScale = new Vector2(1, 1);
+            rig.transform.localScale = new Vector2(1, 1);
             head.transform.localScale = new Vector2(1, 1);
         }
         else
@@ -108,7 +107,7 @@ public class Player : Entity
             {
                 arms.transform.localScale = new Vector2(1, 1);
             }
-            transform.localScale = new Vector2(-1, 1);
+            rig.transform.localScale = new Vector2(-1, 1);
             head.transform.localScale = new Vector2(-1, -1);
         }
 
@@ -128,7 +127,7 @@ public class Player : Entity
     void WalkBackwards()
     {
         // Check if player is walking backwards
-        if (isFacingRight && movement.x < 0 || !isFacingRight && movement.x > 0)
+        if (GetFacingRight() && movement.x < 0 || !GetFacingRight() && movement.x > 0)
         {
             isWalkingBackward = true;
         }
