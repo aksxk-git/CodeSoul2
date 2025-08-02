@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b13f5779fbda02247bf63c40dad2d14a
+guid: d4136b25477acdc4c9417265fe1a58e4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2106732636395952496
-    second: grassyfloor_0
+      213: -7888973107753450218
+    second: cabinroof_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grassyfloor_0
+      name: cabinroof_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 144
-        height: 64
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 096a5e244d163c2e0800000000000000
-      internalID: -2106732636395952496
+      spriteID: 6150fbd81ccb48290800000000000000
+      internalID: -7888973107753450218
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      grassyfloor_0: -2106732636395952496
+      cabinroof_0: -7888973107753450218
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

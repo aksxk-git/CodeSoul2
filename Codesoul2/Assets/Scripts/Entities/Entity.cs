@@ -8,6 +8,7 @@ public class Entity : MonoBehaviour
     public Animator animator;
     public GameObject groundCheckerRight;
     public GameObject groundCheckerLeft;
+    public GameObject groundCheckerDown;
     public GameObject rig;
 
     // Entity Variables
@@ -59,22 +60,33 @@ public class Entity : MonoBehaviour
 
     protected void CheckGround(bool facingRight)
     {
-        float rayLengthRight = 0.5f; // Set a fixed length for your ray
-        RaycastHit2D hitRight = Physics2D.Raycast(groundCheckerRight.transform.position, Vector2.right * rayLengthRight, rayLengthRight, LayerMask.GetMask("Ground"));
+        // Create Downwards Ray
+        float rayLengthDown = 0.01f;
+        RaycastHit2D hitDown = Physics2D.Raycast(groundCheckerDown.transform.position, Vector2.down * rayLengthDown, rayLengthDown, LayerMask.GetMask("Ground"));
 
-        if (hitRight && facingRight)
+        if(hitDown)
         {
-            Debug.Log(hitRight.transform.name);
-            gameObject.transform.position += new Vector3(5, gameObject.transform.position.y + hitRight.point.y, 0) * Time.deltaTime;
-        }
+            //Debug.Log("Touching ground");
 
-        float rayLengthLeft = 0.5f; // Set a fixed length for your ray
-        RaycastHit2D hitLeft = Physics2D.Raycast(groundCheckerLeft.transform.position, Vector2.left * rayLengthLeft, rayLengthLeft, LayerMask.GetMask("Ground"));
+            // Create Right Ray
+            float rayLengthRight = 0.5f;
+            RaycastHit2D hitRight = Physics2D.Raycast(groundCheckerRight.transform.position, Vector2.right * rayLengthRight, rayLengthRight, LayerMask.GetMask("Ground"));
 
-        if (hitLeft && !facingRight)
-        {
-            Debug.Log(hitLeft.transform.name);
-            gameObject.transform.position += new Vector3(-5, gameObject.transform.position.y + hitLeft.point.y, 0) * Time.deltaTime;
+            if (hitRight && facingRight)
+            {
+                //Debug.Log(hitRight.transform.name);
+                gameObject.transform.position += new Vector3(25, gameObject.transform.position.y + hitRight.point.y + 25, 0) * Time.deltaTime;
+            }
+
+            // Create Left Ray
+            float rayLengthLeft = 0.5f;
+            RaycastHit2D hitLeft = Physics2D.Raycast(groundCheckerLeft.transform.position, Vector2.left * rayLengthLeft, rayLengthLeft, LayerMask.GetMask("Ground"));
+
+            if (hitLeft && !facingRight)
+            {
+                //Debug.Log(hitLeft.transform.name);
+                gameObject.transform.position += new Vector3(-25, gameObject.transform.position.y + hitLeft.point.y + 25, 0) * Time.deltaTime;
+            }
         }
     }
 }
