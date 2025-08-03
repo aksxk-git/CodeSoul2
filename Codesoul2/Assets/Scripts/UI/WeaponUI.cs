@@ -4,12 +4,28 @@ using UnityEngine.UI;
 
 public class WeaponUI : MonoBehaviour
 {
-    public Image weaponImage;
-    public TMP_Text weaponText;
+    // Primary Weapon
+    public Sprite primaryWeaponSprite;
+    public TMP_Text primaryWeaponName;
 
-    public void UpdateWeaponUI(Weapon weapon)
+    // Secondary Weapon
+    public Sprite secondaryWeaponSprite;
+    public TMP_Text secondaryWeaponName;
+
+    private void Update()
     {
-        weaponImage.sprite = weapon.weaponSprite;
-        weaponText.text = weapon.weaponName;
+        
+    }
+
+    public void UpdatePrimary(Weapon weapon)
+    {
+        primaryWeaponName.text = weapon.name;
+        primaryWeaponSprite = weapon.weaponSprite;
+    }
+
+    public void UpdateSecondary(Weapon weapon)
+    {
+        secondaryWeaponName.text = weapon.name;
+        secondaryWeaponSprite = weapon.weaponSprite;
     }
 }

@@ -14,6 +14,7 @@ public class Weapon : ScriptableObject
     public float reloadTime; // How long it takes to reload the gun
     public float firerate;
     public bool isHandGun; // Determine where we should place the gun on the hip or back of the character
+    public float animationSpeed;
 
     // Weapon Components
     public RuntimeAnimatorController weaponAnimOverride;

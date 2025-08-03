@@ -21,6 +21,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Weapon currentHeldWeapon;
     [SerializeField] Weapon oneHandedGun;
     [SerializeField] Weapon twoHandedGun;
+    [SerializeField] Weapon[] weapons;
 
     // Player limbs
     [SerializeField] GameObject head;
@@ -40,12 +41,12 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            EquipOneHandedWeapon();
+            EquipWeapon(0);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            EquipTwoHandedWeapon();
+            EquipWeapon(1);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -140,27 +141,24 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    void EquipOneHandedWeapon()
+    void EquipWeapon(int slot)
     {
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (i == slot)
+            {
+                currentHeldWeapon = weapons[i];
+            }
+        }
         player.animator.SetLayerWeight(2, 1);
         player.isWeaponEquipped = true;
-        weaponInHand.GetComponent<SpriteRenderer>().sprite = oneHandedGun.weaponSprite;
-        // Show weapons on player
-        weaponInHand.SetActive(true);
-        weaponOnBack.SetActive(true);
-        weaponOnHip.SetActive(false);
-        player.animator.runtimeAnimatorController = oneHandedGun.weaponAnimOverride;
-        // Set held weapon
-        currentHeldWeapon = oneHandedGun;
-        // Update UI
-        weaponUI.UpdateWeaponUI(currentHeldWeapon);
+        player.animator.runtimeAnimatorController = weapons[slot].weaponAnimOverride;
         gunTimer = currentHeldWeapon.firerate;
-        player.animator.SetFloat("ShootingSpeed", 1f);
-    }
+        // Set and hide sprites.
+        weaponInHand.GetComponent<SpriteRenderer>().sprite = weapons[slot].weaponSprite;
+        player.animator.SetFloat("ShootingSpeed", weapons[slot].animationSpeed);
 
-    void EquipTwoHandedWeapon()
-    {
-        player.animator.SetLayerWeight(2, 1);
+        /*player.animator.SetLayerWeight(2, 1);
         player.isWeaponEquipped = true;
         weaponInHand.GetComponent<SpriteRenderer>().sprite = twoHandedGun.weaponSprite;
         // Show weapons on player
@@ -173,7 +171,7 @@ public class WeaponManager : MonoBehaviour
         // Update UI
         weaponUI.UpdateWeaponUI(currentHeldWeapon);
         gunTimer = currentHeldWeapon.firerate;
-        player.animator.SetFloat("ShootingSpeed", 3.5f);
+        player.animator.SetFloat("ShootingSpeed", 3.5f);*/
     }
 
     void DeEquip()
