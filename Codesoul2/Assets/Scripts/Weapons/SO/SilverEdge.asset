@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: SilverEdge
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 4628462861584378302, guid: d1ccb2a3876567c4995629e3a8a338e8, type: 3}
-  weaponImage: {fileID: 0}
-  weaponName: SE-24
+  weaponName: Silver Edge
   damage: 0
   ammoInMag: 0
   maxMagAmount: 0
   reloadTime: 0
   firerate: 0.4
   isHandGun: 1
-  animationSpeed: 0
+  animationSpeed: 1
   weaponAnimOverride: {fileID: 22100000, guid: 75eca4a7c1bc9e44481b8c04c4e5e923, type: 2}

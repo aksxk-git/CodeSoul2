@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: M4A1
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 21300000, guid: ed24540350f6a2042bcdc943721af099, type: 3}
-  weaponImage: {fileID: 0}
-  weaponName: M4A1 Carbine
+  weaponName: Carbine Rifle
   damage: 0
   ammoInMag: 0
   maxMagAmount: 0
   reloadTime: 0
   firerate: 0.02
   isHandGun: 0
-  animationSpeed: 0
+  animationSpeed: 3.5
   weaponAnimOverride: {fileID: 22100000, guid: 0215bddde7142fa41a79d74868cbcd97, type: 2}

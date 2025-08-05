@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class WeaponUI : MonoBehaviour
 {
     // Primary Weapon
-    public Sprite primaryWeaponSprite;
+    public Image primaryWeaponSprite;
     public TMP_Text primaryWeaponName;
 
     // Secondary Weapon
-    public Sprite secondaryWeaponSprite;
+    public Image secondaryWeaponSprite;
     public TMP_Text secondaryWeaponName;
 
     private void Update()
@@ -19,13 +19,13 @@ public class WeaponUI : MonoBehaviour
 
     public void UpdatePrimary(Weapon weapon)
     {
-        primaryWeaponName.text = weapon.name;
-        primaryWeaponSprite = weapon.weaponSprite;
+        primaryWeaponName.text = weapon.weaponName;
+        primaryWeaponSprite.sprite = weapon.weaponSprite;
     }
 
     public void UpdateSecondary(Weapon weapon)
     {
-        secondaryWeaponName.text = weapon.name;
-        secondaryWeaponSprite = weapon.weaponSprite;
+        secondaryWeaponName.text = weapon.weaponName;
+        secondaryWeaponSprite.sprite = weapon.weaponSprite;
     }
 }

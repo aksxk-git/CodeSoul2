@@ -6,7 +6,6 @@ public class Weapon : ScriptableObject
 {
     // Weapon Properties
     public Sprite weaponSprite;
-    public Image weaponImage;
     public string weaponName;
     public double damage; // Amount of damage that the gun creates
     public int ammoInMag; // How many bullets are currently in the mag
