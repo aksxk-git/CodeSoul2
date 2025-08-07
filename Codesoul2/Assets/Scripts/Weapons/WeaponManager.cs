@@ -93,57 +93,54 @@ public class WeaponManager : MonoBehaviour
             DeEquip();
         }
         // Set weapon sprites
-        if (DoesPlayerHaveAOneHandedWeapon())
+        for (int i = 0; i < weapons.Length; i++)
         {
-            weaponOnHip.GetComponent<SpriteRenderer>().sprite = oneHandedGun.weaponSprite;
-        }
-        if (DoesPlayerHaveATwoHandedWeapon())
-        {
-            weaponOnBack.GetComponent<SpriteRenderer>().sprite = twoHandedGun.weaponSprite;
+            if (!weapons[i].isOneHanded)
+            {
+                weaponOnBack.GetComponent<SpriteRenderer>().sprite = weapons[i].weaponSprite;
+            }
+
+            if (weapons[i].isOneHanded)
+            {
+                weaponOnHip.GetComponent<SpriteRenderer>().sprite = weapons[i].weaponSprite;
+            }
         }
         // Update UI
+        
         weaponUI.UpdatePrimary(weapons[0]);
         weaponUI.UpdateSecondary(weapons[1]);
     }
 
-    bool DoesPlayerHaveAWeapon()
+    bool DoesPlayerHaveAWeaponInSlot(int slot)
     {
-        if (oneHandedGun != null || twoHandedGun != null)
+        for (int i = 0; i < weapons.Length; i++)
         {
-            return true;
+            if (i == slot)
+            {
+                if(weapons[i] != null)
+                {
+                    return true;
+                }
+            }
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
     bool DoesPlayerHaveATwoHandedWeapon()
     {
-        if (twoHandedGun != null)
+        for (int i = 0; i < weapons.Length; i++)
         {
-            return true;
+            if (weapons[i].isOneHanded)
+            {
+                return weapons[i].isOneHanded;
+            }
         }
-        else
-        {
-            return false;
-        }
-    }
-
-    bool DoesPlayerHaveAOneHandedWeapon()
-    {
-        if (oneHandedGun != null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
     void EquipWeapon(int slot)
     {
+        // Get the weapon
         for (int i = 0; i < weapons.Length; i++)
         {
             if (i == slot)
