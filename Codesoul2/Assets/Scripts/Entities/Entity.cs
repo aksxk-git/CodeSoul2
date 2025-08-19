@@ -64,7 +64,7 @@ public class Entity : MonoBehaviour
         float rayLengthDown = 0.01f;
         RaycastHit2D hitDown = Physics2D.Raycast(groundCheckerDown.transform.position, Vector2.down * rayLengthDown, rayLengthDown, LayerMask.GetMask("Ground"));
 
-        if(hitDown)
+        if (hitDown)
         {
             //Debug.Log("Touching ground");
 

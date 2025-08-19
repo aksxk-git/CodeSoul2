@@ -19,17 +19,11 @@ public class WeaponManager : MonoBehaviour
 
     // Weapon slots
     [SerializeField] Weapon currentHeldWeapon;
-    [SerializeField] Weapon oneHandedGun;
-    [SerializeField] Weapon twoHandedGun;
     [SerializeField] Weapon[] weapons;
 
     // Player limbs
     [SerializeField] GameObject head;
     [SerializeField] GameObject arms;
-
-    // Weapon ammo values
-    int primaryWeaponAmmoCount;
-    int secondaryWeaponAmmoCount;
 
     // Float
     float gunTimer;
@@ -54,7 +48,7 @@ public class WeaponManager : MonoBehaviour
                 gunTimer += Time.deltaTime;
             }
 
-            if (Input.GetMouseButton(0) && gunTimer >= currentHeldWeapon.firerate)
+            if (Input.GetMouseButton(0) && gunTimer >= currentHeldWeapon.firerate && currentHeldWeapon.ammoInMag > 0)
             {
                 gunTimer = 0;
                 FireWeapon();
@@ -68,6 +62,8 @@ public class WeaponManager : MonoBehaviour
 
     public void FireWeapon()
     {
+        DepleteAmmo(currentHeldWeapon);
+
         player.animator.SetBool("IsShooting", true);
 
         float rayLength = 15f; // Set a fixed length for your ray
@@ -106,6 +102,33 @@ public class WeaponManager : MonoBehaviour
         if (DoesPlayerHaveAWeaponInSlot(1))
         {
             weaponUI.UpdateSecondary(weapons[1]);
+        }
+
+        // Ammo
+        if(Input.GetKeyDown(KeyCode.R) && currentHeldWeapon.ammoInMag < currentHeldWeapon.maxMagAmount)
+        {
+            Reload(currentHeldWeapon);
+        }
+    }
+
+    void DepleteAmmo(Weapon currentWeapon)
+    {
+        currentHeldWeapon.ammoInMag--;
+    }
+
+    void Reload(Weapon currentWeapon) 
+    {
+        if (currentWeapon.ammoInMag == 0)
+        {
+            int sum = currentWeapon.reservedAmmo - currentWeapon.maxMagAmount;
+            currentWeapon.reservedAmmo = sum;
+            currentWeapon.ammoInMag = currentWeapon.maxMagAmount;
+        }
+        else
+        {
+            int sum = currentWeapon.maxMagAmount - currentWeapon.ammoInMag;
+            currentWeapon.reservedAmmo -= sum;
+            currentWeapon.ammoInMag += sum;
         }
         
     }

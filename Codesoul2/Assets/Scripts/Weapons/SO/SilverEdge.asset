@@ -17,9 +17,10 @@ MonoBehaviour:
   damage: 3
   ammoInMag: 8
   maxMagAmount: 8
-  reservedAmmo: 0
+  reservedAmmo: 56
   reloadTime: 0
   firerate: 0.4
   isOneHanded: 1
+  isSemiAutomatic: 1
   animationSpeed: 1
   weaponAnimOverride: {fileID: 22100000, guid: 75eca4a7c1bc9e44481b8c04c4e5e923, type: 2}
