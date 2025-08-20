@@ -118,19 +118,13 @@ public class WeaponManager : MonoBehaviour
 
     void Reload(Weapon currentWeapon) 
     {
-        if (currentWeapon.ammoInMag == 0)
+        if (currentHeldWeapon.ammoInMag >= 0)
         {
-            int sum = currentWeapon.reservedAmmo - currentWeapon.maxMagAmount;
-            currentWeapon.reservedAmmo = sum;
-            currentWeapon.ammoInMag = currentWeapon.maxMagAmount;
+            int neededAmmo = currentWeapon.maxMagAmount - currentWeapon.ammoInMag;
+            int ammoToReload = Mathf.Min(neededAmmo, currentWeapon.reservedAmmo);
+            currentWeapon.reservedAmmo -= ammoToReload;
+            currentWeapon.ammoInMag += ammoToReload;
         }
-        else
-        {
-            int sum = currentWeapon.maxMagAmount - currentWeapon.ammoInMag;
-            currentWeapon.reservedAmmo -= sum;
-            currentWeapon.ammoInMag += sum;
-        }
-        
     }
 
     bool DoesPlayerHaveAWeaponInSlot(int slot)
