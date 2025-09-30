@@ -5,6 +5,9 @@ public class WeaponManager : MonoBehaviour
     // Reference to UI
     [SerializeField] WeaponUI weaponUI;
 
+    // Reference to audio manager
+    [SerializeField] AudioManager audioManager;
+
     // Entity
     [SerializeField] Player player;
     RuntimeAnimatorController defaultController;
@@ -26,7 +29,11 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] GameObject arms;
 
     // Float
-    float gunTimer;
+    float gunShotTimer;
+    float gunReloadTimer;
+
+    // Bool
+    bool isReloading;
 
     private void Start()
     {
@@ -39,19 +46,24 @@ public class WeaponManager : MonoBehaviour
 
         if (currentHeldWeapon != null)
         {
-            if (gunTimer > currentHeldWeapon.firerate)
+            if (gunShotTimer > currentHeldWeapon.firerate)
             {
-                gunTimer = currentHeldWeapon.firerate;
+                gunShotTimer = currentHeldWeapon.firerate;
             }
             else
             {
-                gunTimer += Time.deltaTime;
+                gunShotTimer += Time.deltaTime;
             }
 
-            if (Input.GetMouseButton(0) && gunTimer >= currentHeldWeapon.firerate && currentHeldWeapon.ammoInMag > 0)
+            if (Input.GetMouseButton(0) && gunShotTimer >= currentHeldWeapon.firerate && currentHeldWeapon.ammoInMag > 0)
             {
-                gunTimer = 0;
+                gunShotTimer = 0;
                 FireWeapon();
+            }
+            else if (Input.GetMouseButton(0) && gunShotTimer >= currentHeldWeapon.firerate && currentHeldWeapon.ammoInMag <= 0)
+            {
+                gunShotTimer = 0;
+                audioManager.PlaySoundEffect(currentHeldWeapon.noAmmoSFX);
             }
             else
             {
@@ -75,6 +87,8 @@ public class WeaponManager : MonoBehaviour
             Debug.Log(hit.collider.name);
             Debug.DrawRay(weaponFirepoint.transform.position, direction * rayLength, Color.green, 0.1f);
         }
+
+        audioManager.PlaySoundEffect(currentHeldWeapon.shotSFX);
     }
 
     void UpdateWeaponry()
@@ -105,7 +119,20 @@ public class WeaponManager : MonoBehaviour
         }
 
         // Ammo
-        if(Input.GetKeyDown(KeyCode.R) && currentHeldWeapon.ammoInMag < currentHeldWeapon.maxMagAmount)
+        if (currentHeldWeapon != null)
+        {
+            if (gunReloadTimer > currentHeldWeapon.reloadTime)
+            {
+                gunReloadTimer = currentHeldWeapon.reloadTime;
+            }
+            else
+            {
+                gunReloadTimer += Time.deltaTime;
+            }
+        }
+        
+
+        if (Input.GetKeyDown(KeyCode.R) && currentHeldWeapon.ammoInMag < currentHeldWeapon.maxMagAmount)
         {
             Reload(currentHeldWeapon);
         }
@@ -118,13 +145,10 @@ public class WeaponManager : MonoBehaviour
 
     void Reload(Weapon currentWeapon) 
     {
-        if (currentHeldWeapon.ammoInMag >= 0)
-        {
-            int neededAmmo = currentWeapon.maxMagAmount - currentWeapon.ammoInMag;
-            int ammoToReload = Mathf.Min(neededAmmo, currentWeapon.reservedAmmo);
-            currentWeapon.reservedAmmo -= ammoToReload;
-            currentWeapon.ammoInMag += ammoToReload;
-        }
+        int neededAmmo = currentWeapon.maxMagAmount - currentWeapon.ammoInMag;
+        int ammoToReload = Mathf.Min(neededAmmo, currentWeapon.reservedAmmo);
+        currentWeapon.reservedAmmo -= ammoToReload;
+        currentWeapon.ammoInMag += ammoToReload;
     }
 
     bool DoesPlayerHaveAWeaponInSlot(int slot)
@@ -168,7 +192,7 @@ public class WeaponManager : MonoBehaviour
             }
             // Setting variables
             player.isWeaponEquipped = true;
-            gunTimer = currentHeldWeapon.firerate;
+            gunShotTimer = currentHeldWeapon.firerate;
             // Set and hide sprites
             weaponInHand.GetComponent<SpriteRenderer>().sprite = weapons[slot].weaponSprite;
             // Animation handling
