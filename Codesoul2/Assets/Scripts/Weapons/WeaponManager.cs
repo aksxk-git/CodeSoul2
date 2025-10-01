@@ -55,7 +55,7 @@ public class WeaponManager : MonoBehaviour
                 gunShotTimer += Time.deltaTime;
             }
 
-            if (Input.GetMouseButton(0) && gunShotTimer >= currentHeldWeapon.firerate && currentHeldWeapon.ammoInMag > 0)
+            if (Input.GetMouseButton(0) && gunShotTimer >= currentHeldWeapon.firerate && currentHeldWeapon.ammoInMag > 0 && !isReloading)
             {
                 gunShotTimer = 0;
                 FireWeapon();
@@ -134,8 +134,30 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && currentHeldWeapon.ammoInMag < currentHeldWeapon.maxMagAmount)
         {
-            Reload(currentHeldWeapon);
+            isReloading = true;
         }
+
+        if (isReloading)
+        {
+            gunReloadTimer += Time.deltaTime;
+            player.animator.SetBool("IsReloading", true);
+        }
+        else
+        {
+            gunReloadTimer = 0;
+            player.animator.SetBool("IsReloading", false);
+        }
+
+        if (currentHeldWeapon != null)
+        {
+            if (gunReloadTimer > currentHeldWeapon.reloadTime && isReloading)
+            {
+                player.animator.SetBool("IsReloading", false);
+                Reload(currentHeldWeapon);
+                isReloading = false;
+            }
+        }
+        
     }
 
     void DepleteAmmo(Weapon currentWeapon)
