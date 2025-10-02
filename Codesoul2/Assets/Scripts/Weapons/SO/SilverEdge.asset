@@ -15,10 +15,10 @@ MonoBehaviour:
   weaponSprite: {fileID: 4628462861584378302, guid: d1ccb2a3876567c4995629e3a8a338e8, type: 3}
   weaponName: Silver Edge
   damage: 3
-  ammoInMag: 7
+  ammoInMag: 8
   maxMagAmount: 8
-  reservedAmmo: 141
-  reloadTime: 1.5
+  reservedAmmo: 833
+  reloadTime: 2
   firerate: 0.4
   isOneHanded: 1
   isSemiAutomatic: 1

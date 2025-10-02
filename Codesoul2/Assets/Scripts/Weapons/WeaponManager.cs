@@ -152,8 +152,8 @@ public class WeaponManager : MonoBehaviour
         {
             if (gunReloadTimer > currentHeldWeapon.reloadTime && isReloading)
             {
-                player.animator.SetBool("IsReloading", false);
                 Reload(currentHeldWeapon);
+                player.animator.SetBool("IsReloading", false);
                 isReloading = false;
             }
         }
