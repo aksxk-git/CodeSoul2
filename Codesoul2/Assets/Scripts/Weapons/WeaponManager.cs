@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -67,7 +68,7 @@ public class WeaponManager : MonoBehaviour
             }
             else
             {
-                player.animator.SetBool("IsShooting", false);
+                player.animator.SetTrigger("IsShooting");
             }
         }
     }
@@ -76,7 +77,7 @@ public class WeaponManager : MonoBehaviour
     {
         DepleteAmmo(currentHeldWeapon);
 
-        player.animator.SetBool("IsShooting", true);
+        player.animator.SetTrigger("IsShooting");
 
         float rayLength = 15f; // Set a fixed length for your ray
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - weaponFirepoint.transform.position).normalized;
@@ -140,12 +141,12 @@ public class WeaponManager : MonoBehaviour
         if (isReloading)
         {
             gunReloadTimer += Time.deltaTime;
-            player.animator.SetBool("IsReloading", true);
+            player.animator.SetTrigger("IsReloading");
         }
         else
         {
             gunReloadTimer = 0;
-            player.animator.SetBool("IsReloading", false);
+            player.animator.SetTrigger("IsReloading");
         }
 
         if (currentHeldWeapon != null)
@@ -153,7 +154,7 @@ public class WeaponManager : MonoBehaviour
             if (gunReloadTimer > currentHeldWeapon.reloadTime && isReloading)
             {
                 Reload(currentHeldWeapon);
-                player.animator.SetBool("IsReloading", false);
+                player.animator.SetTrigger("IsReloading");
                 isReloading = false;
             }
         }
