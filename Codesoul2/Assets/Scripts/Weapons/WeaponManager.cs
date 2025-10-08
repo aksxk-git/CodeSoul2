@@ -68,17 +68,15 @@ public class WeaponManager : MonoBehaviour
             }
             else
             {
-                player.animator.SetTrigger("IsShooting");
+                player.animator.SetBool("IsShooting", false);
             }
         }
     }
 
     public void FireWeapon()
     {
+        player.animator.SetBool("IsShooting", true);
         DepleteAmmo(currentHeldWeapon);
-
-        player.animator.SetTrigger("IsShooting");
-
         float rayLength = 15f; // Set a fixed length for your ray
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - weaponFirepoint.transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(weaponFirepoint.transform.position, direction * rayLength, rayLength, LayerMask.GetMask("Shootable"));
@@ -90,6 +88,7 @@ public class WeaponManager : MonoBehaviour
         }
 
         audioManager.PlaySoundEffect(currentHeldWeapon.shotSFX);
+
     }
 
     void UpdateWeaponry()
@@ -136,17 +135,16 @@ public class WeaponManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && currentHeldWeapon.ammoInMag < currentHeldWeapon.maxMagAmount)
         {
             isReloading = true;
+            player.animator.SetBool("IsReloading", true);
         }
 
         if (isReloading)
         {
             gunReloadTimer += Time.deltaTime;
-            player.animator.SetTrigger("IsReloading");
         }
         else
         {
             gunReloadTimer = 0;
-            player.animator.SetTrigger("IsReloading");
         }
 
         if (currentHeldWeapon != null)
@@ -154,7 +152,7 @@ public class WeaponManager : MonoBehaviour
             if (gunReloadTimer > currentHeldWeapon.reloadTime && isReloading)
             {
                 Reload(currentHeldWeapon);
-                player.animator.SetTrigger("IsReloading");
+                player.animator.SetBool("IsReloading", false);
                 isReloading = false;
             }
         }
