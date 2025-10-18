@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 21300000, guid: ed24540350f6a2042bcdc943721af099, type: 3}
   weaponName: Carbine Rifle
-  damage: 0
-  ammoInMag: 0
-  maxMagAmount: 0
-  reservedAmmo: 0
-  reloadTime: 0
-  firerate: 0.02
+  damage: 1
+  ammoInMag: 30
+  maxMagAmount: 30
+  reservedAmmo: 461
+  reloadTime: 1
+  firerate: 0.09
   isOneHanded: 0
+  isSemiAutomatic: 0
   animationSpeed: 3.5
+  shotSFX: {fileID: 8300000, guid: fe710c4b048a1ba4dbe0d17952af8ed6, type: 3}
+  noAmmoSFX: {fileID: 8300000, guid: 5def8e7ed373dd040874f456f057b126, type: 3}
   weaponAnimOverride: {fileID: 22100000, guid: 0215bddde7142fa41a79d74868cbcd97, type: 2}

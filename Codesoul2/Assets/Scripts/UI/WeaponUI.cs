@@ -13,6 +13,8 @@ public class WeaponUI : MonoBehaviour
     // Secondary Weapon
     public Image secondaryWeaponSprite;
     public TMP_Text secondaryWeaponName;
+    public TMP_Text secondaryWeaponMagText;
+    public TMP_Text secondaryWeaponReserveText;
 
     private void Update()
     {
@@ -31,5 +33,7 @@ public class WeaponUI : MonoBehaviour
     {
         secondaryWeaponName.text = weapon.weaponName;
         secondaryWeaponSprite.sprite = weapon.weaponSprite;
+        secondaryWeaponMagText.text = weapon.ammoInMag.ToString();
+        secondaryWeaponReserveText.text = weapon.reservedAmmo.ToString();
     }
 }
