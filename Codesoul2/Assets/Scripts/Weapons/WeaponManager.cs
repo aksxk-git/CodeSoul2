@@ -39,6 +39,7 @@ public class WeaponManager : MonoBehaviour
     private void Start()
     {
         defaultController = player.animator.runtimeAnimatorController;
+        currentHeldWeapon = weapons[0];
     }
 
     private void Update()
@@ -110,12 +111,7 @@ public class WeaponManager : MonoBehaviour
         // Update UI
         if (DoesPlayerHaveAWeaponInSlot(0))
         {
-            weaponUI.UpdatePrimary(weapons[0]);
-        }
-
-        if (DoesPlayerHaveAWeaponInSlot(1))
-        {
-            weaponUI.UpdateSecondary(weapons[1]);
+            weaponUI.UpdatePrimary(currentHeldWeapon);
         }
 
         // Ammo
