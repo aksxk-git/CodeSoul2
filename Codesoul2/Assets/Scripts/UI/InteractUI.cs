@@ -8,12 +8,18 @@ public class InteractUI : MonoBehaviour
 
     public void ShowPrompt(string text)
     {
-        prompt.SetActive(true);
-        promptText.text = text;
+        if (prompt != null)
+        {
+            prompt.SetActive(true);
+            promptText.text = text;
+        }
     }
 
     public void HidePrompt()
     {
-        prompt.SetActive(false);
+        if (prompt != null)
+        {
+            prompt.SetActive(false);
+        }
     }
 }

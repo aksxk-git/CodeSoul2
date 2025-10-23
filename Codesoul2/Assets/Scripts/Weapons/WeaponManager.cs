@@ -40,6 +40,8 @@ public class WeaponManager : MonoBehaviour
     {
         defaultController = player.animator.runtimeAnimatorController;
         currentHeldWeapon = weapons[0];
+
+        EquipWeapon(0);
     }
 
     private void Update()
@@ -102,10 +104,6 @@ public class WeaponManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             EquipWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            DeEquip();
         }
 
         // Update UI

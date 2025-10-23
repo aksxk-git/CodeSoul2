@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: M4A1
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 21300000, guid: ed24540350f6a2042bcdc943721af099, type: 3}
-  weaponName: Carbine Rifle
+  weaponName: M4A1
   damage: 1
-  ammoInMag: 9
+  ammoInMag: 30
   maxMagAmount: 30
-  reservedAmmo: 0
+  reservedAmmo: 724
   reloadTime: 1
   firerate: 0.09
   isOneHanded: 0

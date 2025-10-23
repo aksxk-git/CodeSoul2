@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95022fb1f83dcf544a9d99061cfc56ea, type: 3}
-  m_Name: SilverEdge
+  m_Name: SE23
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 4628462861584378302, guid: d1ccb2a3876567c4995629e3a8a338e8, type: 3}
-  weaponName: Silver Edge
+  weaponName: SE23
   damage: 3
-  ammoInMag: 4
+  ammoInMag: 3
   maxMagAmount: 8
-  reservedAmmo: 715
+  reservedAmmo: 707
   reloadTime: 3
   firerate: 0.4
   isOneHanded: 1
