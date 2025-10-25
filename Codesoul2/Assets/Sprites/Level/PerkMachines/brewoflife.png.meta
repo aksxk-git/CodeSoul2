@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 910a1e42b1a2ac547a8562eee87ef12b
+guid: 0e012ee75d2130d4f91b16b351cfbb8a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7494044753150036146
-    second: BrewOfRevival_0
+      213: -3834265261042377479
+    second: brewoflife_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BrewOfRevival_0
+      name: brewoflife_0
       rect:
         serializedVersion: 2
         x: 13
         y: 0
         width: 38
-        height: 86
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e47bc9d800ecff790800000000000000
-      internalID: -7494044753150036146
+      spriteID: 9fcd2f45f04f9cac0800000000000000
+      internalID: -3834265261042377479
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BrewOfRevival_0: -7494044753150036146
+      brewoflife_0: -3834265261042377479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
