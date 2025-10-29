@@ -103,10 +103,10 @@ TextureImporter:
       name: points_logo_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 7
         y: 2
-        width: 138
-        height: 132
+        width: 128
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
