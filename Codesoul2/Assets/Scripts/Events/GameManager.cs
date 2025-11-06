@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     // Game stats
     public int playerScore;
+    public int wave;
     // Game rules
     public int startingScore;
     public int perkLimit;

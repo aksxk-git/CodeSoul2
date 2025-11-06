@@ -76,17 +76,16 @@ public class WeaponManager : MonoBehaviour
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - weaponFirepoint.transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(weaponFirepoint.transform.position, direction * rayLength, rayLength, LayerMask.GetMask("Shootable"));
 
-        if (hit.collider.gameObject.CompareTag("Enemy"))
+        if (hit)
         {
-            hit.collider.gameObject.GetComponent<Enemy>().Hurt();
-            hit.collider.gameObject.SetActive(false);
+            if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy"))
+            {
+                hit.collider.gameObject.GetComponent<Enemy>().Hurt();
+                hit.collider.gameObject.SetActive(false);
+            }
         }
-        else
-        {
-
-        }
-
-            audioManager.PlaySoundEffect(currentHeldWeapon.shotSFX);
+        
+        audioManager.PlaySoundEffect(currentHeldWeapon.shotSFX);
     }
 
     void UpdateWeaponry()
