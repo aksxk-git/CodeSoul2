@@ -5,34 +5,26 @@ public class WeaponManager : MonoBehaviour
 {
     // Reference to UI
     [SerializeField] WeaponUI weaponUI;
-
     // Reference to audio manager
     [SerializeField] AudioManager audioManager;
-
     // Entity
     [SerializeField] Player player;
     RuntimeAnimatorController defaultController;
-
     // Weapon components
     [SerializeField] GameObject weaponFirepoint;
-
     // Weapon equip placements
     [SerializeField] GameObject weaponInHand; // Show current equipped weapon
     [SerializeField] GameObject weaponOnBack; // For larger two handed weapons
     [SerializeField] GameObject weaponOnHip; // For one handed small weapons
-
     // Weapon slots
     [SerializeField] Weapon currentHeldWeapon;
-    [SerializeField] Weapon[] weapons;
-
+    public Weapon[] weapons;
     // Player limbs
     [SerializeField] GameObject head;
     [SerializeField] GameObject arms;
-
     // Float
     float gunShotTimer;
     float gunReloadTimer;
-
     // Bool
     bool isReloading;
 
@@ -84,14 +76,17 @@ public class WeaponManager : MonoBehaviour
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - weaponFirepoint.transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(weaponFirepoint.transform.position, direction * rayLength, rayLength, LayerMask.GetMask("Shootable"));
 
-        if (hit)
+        if (hit.collider.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log(hit.collider.name);
-            Debug.DrawRay(weaponFirepoint.transform.position, direction * rayLength, Color.green, 0.1f);
+            hit.collider.gameObject.GetComponent<Enemy>().Hurt();
+            hit.collider.gameObject.SetActive(false);
+        }
+        else
+        {
+
         }
 
-        audioManager.PlaySoundEffect(currentHeldWeapon.shotSFX);
-
+            audioManager.PlaySoundEffect(currentHeldWeapon.shotSFX);
     }
 
     void UpdateWeaponry()
@@ -125,8 +120,7 @@ public class WeaponManager : MonoBehaviour
             }
         }
         
-
-        if (Input.GetKeyDown(KeyCode.R) && currentHeldWeapon.ammoInMag < currentHeldWeapon.maxMagAmount)
+        if (Input.GetKeyDown(KeyCode.R) && currentHeldWeapon.ammoInMag < currentHeldWeapon.maxMagAmount && currentHeldWeapon.reservedAmmo != 0)
         {
             isReloading = true;
             player.animator.SetBool("IsReloading", true);

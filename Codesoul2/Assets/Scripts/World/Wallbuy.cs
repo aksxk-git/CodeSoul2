@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class Wallbuy : MonoBehaviour
 {
+    public GameManager gm;
     public InteractUI ui;
-
     public int cost;
+    public int ammoCost;
     public Weapon weapon;
-
     bool inRange;
-
     string text;
 
     private void Start()
@@ -20,18 +19,26 @@ public class Wallbuy : MonoBehaviour
     {
         if (inRange && Input.GetKeyDown(KeyCode.F))
         {
-            Purchase();
+            if (gm.SearchForWeaponOnPlayer(weapon))
+            {
+                
+            }
+            else
+            {
+                Purchase();
+            }
         }
     }
 
     public void Purchase()
     {
-        Debug.Log("Purchased " + weapon.weaponName + " for " + cost + " points!");
+        
     }
 
-    public void PurchaseAmmo()
+    public void PurchaseAmmo(Weapon weapon)
     {
-
+        gm.playerScore -= ammoCost;
+        weapon.reservedAmmo = weapon.maxReservedAmmo;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

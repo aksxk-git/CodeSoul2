@@ -17,9 +17,9 @@ MonoBehaviour:
   damage: 3
   ammoInMag: 8
   maxMagAmount: 8
-  reservedAmmo: 641
+  reservedAmmo: 344
   reloadTime: 2.5
-  firerate: 0.4
+  firerate: 0.45
   isOneHanded: 1
   isSemiAutomatic: 1
   animationSpeed: 1

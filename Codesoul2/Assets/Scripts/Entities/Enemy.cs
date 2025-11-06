@@ -75,4 +75,9 @@ public class Enemy : Entity
         distance = Mathf.Sqrt(x);
         return distance;
     }
+
+    public void Hurt()
+    {
+        Debug.Log("Hurt enemy");
+    }
 }

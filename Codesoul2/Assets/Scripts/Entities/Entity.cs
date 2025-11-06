@@ -10,7 +10,6 @@ public class Entity : MonoBehaviour
     public GameObject groundCheckerLeft;
     public GameObject groundCheckerDown;
     public GameObject rig;
-
     // Entity Variables
     private float health = 100.0f;
     private float speed = 100.0f;

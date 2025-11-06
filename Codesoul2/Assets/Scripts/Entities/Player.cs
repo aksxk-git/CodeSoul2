@@ -11,10 +11,8 @@ public class Player : Entity
     public bool isWalkingBackward = false;
     public bool isCrouched = false;
     public bool isWeaponEquipped = false;
-
     Vector3 mousePosition;
     Vector3 direction;
-
     // Player limbs
     [SerializeField] GameObject head;
     [SerializeField] GameObject arms;
