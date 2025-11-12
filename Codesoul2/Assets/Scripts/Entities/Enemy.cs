@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public int hp;
+
     private void Start()
     {
-
+        hp = 3;
     }
 
     private void Update()
@@ -78,6 +80,16 @@ public class Enemy : Entity
 
     public void Hurt()
     {
-        Debug.Log("Hurt enemy");
+        hp--;
+
+        Die();
+    }
+
+    void Die()
+    {
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

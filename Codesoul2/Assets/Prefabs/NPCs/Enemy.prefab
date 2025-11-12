@@ -159,8 +159,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0015049577, y: -0.94069934}
-  m_Size: {x: 1.3498574, y: 4.8813987}
+  m_Offset: {x: 0.0015049577, y: -0.93207145}
+  m_Size: {x: 1.3498574, y: 4.8986545}
   m_Direction: 0
 --- !u!50 &1199046657259734295
 Rigidbody2D:
@@ -206,6 +206,8 @@ MonoBehaviour:
   groundCheckerLeft: {fileID: 8380104162973711366}
   groundCheckerDown: {fileID: 8572691676819419496}
   rig: {fileID: 777226609402004818}
+  hp: 0
+  limbs: []
 --- !u!1 &777226609402004818
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,7 +54,7 @@ public class EndlessWaveGen : MonoBehaviour
         }
         else if (!isEnemyInScene() && spawningHasCompleted)
         {
-            countdownTextUI.text = countdownUntilNextWave.ToString("F0");
+            countdownTextUI.text = "TIME UNTIL NEXT WAVE: " + countdownUntilNextWave.ToString("F0");
             countdownUntilNextWave -= Time.deltaTime;
         }
 
@@ -103,6 +103,7 @@ public class EndlessWaveGen : MonoBehaviour
         enemiesToSpawn += 3;
         unlockTier++;
 
+        // every 5 waves unlock an enemy tier, enemy tiers introduce new enemies
         if (unlockTier == 5)
         {
             unlockTier = 0;
@@ -162,8 +163,13 @@ public class EndlessWaveGen : MonoBehaviour
     private bool isEnemyInScene()
     {
         if (GameObject.FindGameObjectWithTag("Enemy"))
+        {
             return true;
-        else return false;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private IEnumerator SpawnInterval()

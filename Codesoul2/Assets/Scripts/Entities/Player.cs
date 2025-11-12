@@ -136,7 +136,7 @@ public class Player : Entity
         // Slow down player if walking backwards
         if (isWalkingBackward)
         {
-            SetSpeed(50);
+            SetSpeed(80);
         }
     }
 

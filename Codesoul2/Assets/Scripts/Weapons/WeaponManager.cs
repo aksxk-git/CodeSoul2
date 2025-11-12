@@ -81,7 +81,6 @@ public class WeaponManager : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy"))
             {
                 hit.collider.gameObject.GetComponent<Enemy>().Hurt();
-                hit.collider.gameObject.SetActive(false);
             }
         }
         

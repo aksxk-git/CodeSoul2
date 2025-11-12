@@ -393,7 +393,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -64}
+  m_AnchoredPosition: {x: 895, y: 929}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &59586236
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'TIME UNTIL NEXT WAVE: 30'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ac812d39f11fa244a9b271118878668, type: 2}
   m_sharedMaterial: {fileID: 8234691206831326557, guid: 9ac812d39f11fa244a9b271118878668, type: 2}
@@ -443,8 +443,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -52.497498, y: -85.437744, z: -53.023865, w: -98.74835}
+  m_margin: {x: -243.19983, y: -5.9613953, z: -237.97626, w: -10.945839}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
