@@ -15,9 +15,10 @@ MonoBehaviour:
   weaponSprite: {fileID: 4628462861584378302, guid: d1ccb2a3876567c4995629e3a8a338e8, type: 3}
   weaponName: SE23
   damage: 3
-  ammoInMag: 8
+  ammoInMag: 0
   maxMagAmount: 8
   reservedAmmo: 344
+  maxReservedAmmo: 0
   reloadTime: 2.5
   firerate: 0.45
   isOneHanded: 1
@@ -25,4 +26,5 @@ MonoBehaviour:
   animationSpeed: 1
   shotSFX: {fileID: 8300000, guid: 2f995c73f75b9494291b34756769481b, type: 3}
   noAmmoSFX: {fileID: 8300000, guid: 5def8e7ed373dd040874f456f057b126, type: 3}
+  projectile: {fileID: 825735333412919030, guid: 75840390b1ddc554883f8ebd0f8d5b62, type: 3}
   weaponAnimOverride: {fileID: 22100000, guid: 75eca4a7c1bc9e44481b8c04c4e5e923, type: 2}

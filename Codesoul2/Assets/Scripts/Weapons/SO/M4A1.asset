@@ -17,7 +17,8 @@ MonoBehaviour:
   damage: 1
   ammoInMag: 30
   maxMagAmount: 30
-  reservedAmmo: 678
+  reservedAmmo: 434
+  maxReservedAmmo: 0
   reloadTime: 2.5
   firerate: 0.1
   isOneHanded: 0
@@ -25,4 +26,5 @@ MonoBehaviour:
   animationSpeed: 1
   shotSFX: {fileID: 8300000, guid: fe710c4b048a1ba4dbe0d17952af8ed6, type: 3}
   noAmmoSFX: {fileID: 8300000, guid: 5def8e7ed373dd040874f456f057b126, type: 3}
+  projectile: {fileID: 825735333412919030, guid: 75840390b1ddc554883f8ebd0f8d5b62, type: 3}
   weaponAnimOverride: {fileID: 22100000, guid: 0215bddde7142fa41a79d74868cbcd97, type: 2}

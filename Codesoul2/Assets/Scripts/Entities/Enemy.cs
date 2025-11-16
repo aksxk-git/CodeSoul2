@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    public int hp;
+    public float hp;
 
     private void Start()
     {
-        hp = 3;
+        hp = 100;
     }
 
     private void Update()
@@ -25,7 +25,7 @@ public class Enemy : Entity
             animator.SetBool("IsMoving", false);
         }
         
-        CheckGround(facingRight);
+        CheckGround(isFacingRight);
     }
 
     void FollowTarget(GameObject target)
@@ -78,9 +78,9 @@ public class Enemy : Entity
         return distance;
     }
 
-    public void Hurt()
+    public void Hurt(float damage)
     {
-        hp--;
+        hp -= damage;
 
         Die();
     }

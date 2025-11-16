@@ -13,7 +13,7 @@ public class Entity : MonoBehaviour
     // Entity Variables
     private float health = 100.0f;
     private float speed = 100.0f;
-    protected bool facingRight = true;
+    public bool isFacingRight = true;
 
     private void Awake()
     {
@@ -44,12 +44,12 @@ public class Entity : MonoBehaviour
 
     protected void SetFacingRight(bool isFacingRight)
     {
-        this.facingRight = isFacingRight;
+        this.isFacingRight = isFacingRight;
     }
 
     protected bool GetFacingRight()
     {
-        return this.facingRight;
+        return this.isFacingRight;
     }
 
     protected void Damage(float damage)
