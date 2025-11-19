@@ -25,29 +25,13 @@ public class DefaultBullet : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
 
         bulletDamage = weapon.GetCurrentWeapon().damage;
-
-        BulletDirection();
     }
 
     private void Update()
     {
         Destroy(gameObject, destroyTime);
-    }
 
-    private void BulletDirection()
-    {
-        /*if (player.isFacingRight)
-        {
-            rb.AddForce(Vector2.right * speed);
-            sr.flipX = false;
-        }
-        else
-        {
-            rb.AddForce(Vector2.left * speed);
-            sr.flipX = true;
-        }*/
-
-        transform.position += velocity * speed * Time.deltaTime;
+        transform.position -= velocity * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

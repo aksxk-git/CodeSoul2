@@ -73,23 +73,9 @@ public class WeaponManager : MonoBehaviour
         player.animator.SetBool("IsShooting", true);
         DepleteAmmo(currentHeldWeapon);
 
-        // Raycast
-        /*
-        float rayLength = 15f; // Set a fixed length for your ray
-        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - weaponFirepoint.transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(weaponFirepoint.transform.position, direction * rayLength, rayLength, LayerMask.GetMask("Shootable"));
-
-        if (hit)
-        {
-            if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy"))
-            {
-                hit.collider.gameObject.GetComponent<Enemy>().Hurt(1);
-            }
-        }
-        */
-
         GameObject defaultBullet = Instantiate(currentHeldWeapon.projectile, weaponFirepoint.transform.position, Quaternion.identity);
         defaultBullet.GetComponent<DefaultBullet>().velocity = new Vector2(transform.position.x - player.mousePosition.x, transform.position.y - player.mousePosition.y);
+
         audioManager.PlaySoundEffect(currentHeldWeapon.shotSFX);
     }
 
