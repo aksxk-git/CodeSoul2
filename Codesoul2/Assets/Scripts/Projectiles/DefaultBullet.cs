@@ -30,7 +30,10 @@ public class DefaultBullet : MonoBehaviour
     private void Update()
     {
         Destroy(gameObject, destroyTime);
+    }
 
+    private void FixedUpdate()
+    {
         transform.position -= velocity * speed * Time.deltaTime;
     }
 

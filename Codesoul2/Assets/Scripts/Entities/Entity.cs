@@ -59,15 +59,12 @@ public class Entity : MonoBehaviour
 
     protected void CheckGround(bool facingRight)
     {
-        // Create Downwards Ray
         float rayLengthDown = 0.02f;
         RaycastHit2D hitDown = Physics2D.Raycast(groundCheckerDown.transform.position, Vector2.down * rayLengthDown, rayLengthDown, LayerMask.GetMask("Ground"));
 
         if (hitDown)
         {
             //Debug.Log("Touching ground");
-
-            // Create Right Ray
             float rayLengthRight = 0.4f;
             RaycastHit2D hitRight = Physics2D.Raycast(groundCheckerRight.transform.position, Vector2.right * rayLengthRight, rayLengthRight, LayerMask.GetMask("Ground"));
 
@@ -77,7 +74,6 @@ public class Entity : MonoBehaviour
                 gameObject.transform.position += new Vector3(25, gameObject.transform.position.y + hitRight.point.y + 35, 0) * Time.deltaTime;
             }
 
-            // Create Left Ray
             float rayLengthLeft = 0.4f;
             RaycastHit2D hitLeft = Physics2D.Raycast(groundCheckerLeft.transform.position, Vector2.left * rayLengthLeft, rayLengthLeft, LayerMask.GetMask("Ground"));
 

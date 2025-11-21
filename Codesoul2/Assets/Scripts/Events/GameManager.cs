@@ -23,22 +23,27 @@ public class GameManager : MonoBehaviour
         return player.GetComponent<WeaponManager>().weapons[slot];
     }
 
-    public bool SearchForWeaponOnPlayer(Weapon weapon)
+    public void SetPlayerWeapon(int slot, Weapon weapon)
+    {
+        player.GetComponent<WeaponManager>().weapons[slot] = weapon;
+    }
+
+    public bool HasPlayerGotThisWeapon(Weapon weapon)
     {
         for (int i = 0; i < player.GetComponent<WeaponManager>().weapons.Length; i++)
         {
-            if (weapon.weaponName == player.GetComponent<WeaponManager>().weapons[i].weaponName)
+            if (player.GetComponent<WeaponManager>().weapons[i] == weapon)
             {
-                return true;
+                return true; 
             }
         }
 
         return false;
     }
 
-    public bool CompareWeapon(Weapon weapon1, Weapon weapon2)
+    public bool HasPlayerGotASecondary()
     {
-        if (weapon1 == weapon2)
+        if (player.GetComponent<WeaponManager>().weapons[1] != null)
         {
             return true;
         }
@@ -48,8 +53,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetPlayerWeapon(int slot, Weapon weapon)
+    public void RewardPointsOnHit()
     {
-        player.GetComponent<WeaponManager>().weapons[slot] = weapon;
+        playerScore += 10;
+    }
+
+    public void RewardPointsOnKill()
+    {
+        playerScore += 60; 
     }
 }

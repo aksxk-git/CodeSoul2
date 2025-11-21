@@ -22,6 +22,8 @@ public class Weapon : ScriptableObject
     public AudioClip shotSFX; // Sound effect for the gun when shot
     public AudioClip noAmmoSFX; // Sound effect for the gun when theres no ammo and you try to shoot
     public GameObject projectile;
+    public int weaponCost;
+    public int ammoCost;
     // Weapon Components
     public RuntimeAnimatorController weaponAnimOverride;
 }

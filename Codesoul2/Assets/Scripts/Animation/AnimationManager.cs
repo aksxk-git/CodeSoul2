@@ -46,6 +46,4 @@ public class AnimationManager : MonoBehaviour
             player.animator.SetLayerWeight(1, 0);
         }
     }
-
-
 }

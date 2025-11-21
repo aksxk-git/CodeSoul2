@@ -18,6 +18,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] GameObject weaponOnHip; // For one handed small weapons
     // Weapon slots
     [SerializeField] Weapon currentHeldWeapon;
+    public int currentWeaponSlot;
     public Weapon[] weapons;
     // Player limbs
     [SerializeField] GameObject head;
@@ -31,8 +32,8 @@ public class WeaponManager : MonoBehaviour
     private void Start()
     {
         defaultController = player.animator.runtimeAnimatorController;
-        currentHeldWeapon = weapons[0];
-
+        currentWeaponSlot = 0;
+        currentHeldWeapon = weapons[currentWeaponSlot];
         EquipWeapon(0);
     }
 
@@ -74,7 +75,7 @@ public class WeaponManager : MonoBehaviour
         DepleteAmmo(currentHeldWeapon);
 
         GameObject defaultBullet = Instantiate(currentHeldWeapon.projectile, weaponFirepoint.transform.position, Quaternion.identity);
-        defaultBullet.GetComponent<DefaultBullet>().velocity = new Vector2(transform.position.x - player.mousePosition.x, transform.position.y - player.mousePosition.y);
+        defaultBullet.GetComponent<DefaultBullet>().velocity = new Vector2(weaponFirepoint.transform.position.x - player.mousePosition.x, weaponFirepoint.transform.position.y - player.mousePosition.y).normalized;
 
         audioManager.PlaySoundEffect(currentHeldWeapon.shotSFX);
     }
@@ -84,11 +85,13 @@ public class WeaponManager : MonoBehaviour
         // Swap weapons
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            EquipWeapon(0);
+            currentWeaponSlot = 0;
+            EquipWeapon(currentWeaponSlot);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            EquipWeapon(1);
+            currentWeaponSlot = 1;
+            EquipWeapon(currentWeaponSlot);
         }
 
         // Update UI

@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    GameManager gm;
     public float hp;
 
     private void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         hp = 100;
     }
 
@@ -81,7 +83,7 @@ public class Enemy : Entity
     public void Hurt(float damage)
     {
         hp -= damage;
-
+        gm.RewardPointsOnHit();
         Die();
     }
 
@@ -89,6 +91,7 @@ public class Enemy : Entity
     {
         if(hp <= 0)
         {
+            gm.RewardPointsOnKill();
             Destroy(gameObject);
         }
     }
