@@ -180,7 +180,7 @@ public class WeaponManager : MonoBehaviour
         return false;
     }
 
-    void EquipWeapon(int slot)
+    public void EquipWeapon(int slot)
     {
         if(weapons[slot] != null )
         {

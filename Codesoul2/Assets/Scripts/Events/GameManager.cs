@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public void SetPlayerWeapon(int slot, Weapon weapon)
     {
         player.GetComponent<WeaponManager>().weapons[slot] = weapon;
+        player.GetComponent<WeaponManager>().EquipWeapon(slot);
     }
 
     public bool HasPlayerGotThisWeapon(Weapon weapon)

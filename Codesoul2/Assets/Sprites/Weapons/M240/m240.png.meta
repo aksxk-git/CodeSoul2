@@ -1,28 +1,31 @@
 fileFormatVersion: 2
-guid: d1ccb2a3876567c4995629e3a8a338e8
+guid: 95c2ba31dffc50143a230d6bd31a93c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4628462861584378302
-    second: silver_edge_0
+      213: 9079983674325913988
+    second: m240_0
   - first:
-      213: -7348624165654521167
-    second: silver_edge_1
+      213: 1596018502281081178
+    second: m240_1
   - first:
-      213: 1947355748662524829
-    second: silver_edge_2
+      213: 4112783665120640764
+    second: m240_2
   - first:
-      213: -7673752658925363002
-    second: silver_edge_3
+      213: 6069669711415762931
+    second: m240_3
   - first:
-      213: -1326866826580958879
-    second: silver_edge_4
+      213: -8631635646166107194
+    second: m240_4
   - first:
-      213: 2521141316957148994
-    second: silver_edge_5
+      213: -8328157661224296622
+    second: m240_5
   - first:
-      213: -5907584657679743045
-    second: silver_edge_6
+      213: 5015122873220130288
+    second: m240_6
+  - first:
+      213: 4734446813543079577
+    second: m240_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,155 +121,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: silver_edge_0
+      name: m240_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 16
+        width: 80
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb923d0337a9b3040800000000000000
-      internalID: 4628462861584378302
+      spriteID: 481da824b05920e70800000000000000
+      internalID: 9079983674325913988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: silver_edge_1
+      name: m240_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 80
         y: 0
-        width: 32
-        height: 16
+        width: 80
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ba9f4a8141740a90800000000000000
-      internalID: -7348624165654521167
+      spriteID: a513a6b2f52362610800000000000000
+      internalID: 1596018502281081178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: silver_edge_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d9b38526cb5660b10800000000000000
-      internalID: 1947355748662524829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: silver_edge_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6c06b8e2d9a518590800000000000000
-      internalID: -7673752658925363002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: silver_edge_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1616469b6a5069de0800000000000000
-      internalID: -1326866826580958879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: silver_edge_5
+      name: m240_2
       rect:
         serializedVersion: 2
         x: 160
         y: 0
-        width: 32
-        height: 16
+        width: 80
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2479ac19ba4ecf220800000000000000
-      internalID: 2521141316957148994
+      spriteID: cfe7b85f3fa831930800000000000000
+      internalID: 4112783665120640764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: silver_edge_6
+      name: m240_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 240
         y: 0
-        width: 32
-        height: 16
+        width: 80
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb78376bd0b040ea0800000000000000
-      internalID: -5907584657679743045
+      spriteID: 3ff52eca17ccb3450800000000000000
+      internalID: 6069669711415762931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: m240_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb7ba7bc15463880800000000000000
+      internalID: -8631635646166107194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: m240_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f17494bb07c6c80800000000000000
+      internalID: -8328157661224296622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: m240_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5e8339eab499540800000000000000
+      internalID: 5015122873220130288
       vertices: []
       indices: 
       edges: []
@@ -275,7 +278,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c5437290d0d65d846b04dfb444397199
+    spriteID: 57f0470e3712fb944a36b49357b3a356
     internalID: 0
     vertices: []
     indices: 
@@ -285,15 +288,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":80.0,"y":80.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      silver_edge_0: 4628462861584378302
-      silver_edge_1: -7348624165654521167
-      silver_edge_2: 1947355748662524829
-      silver_edge_3: -7673752658925363002
-      silver_edge_4: -1326866826580958879
-      silver_edge_5: 2521141316957148994
-      silver_edge_6: -5907584657679743045
+      m240_0: 9079983674325913988
+      m240_1: 1596018502281081178
+      m240_2: 4112783665120640764
+      m240_3: 6069669711415762931
+      m240_4: -8631635646166107194
+      m240_5: -8328157661224296622
+      m240_6: 5015122873220130288
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
