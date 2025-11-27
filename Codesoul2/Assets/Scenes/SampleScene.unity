@@ -911,7 +911,7 @@ GameObject:
   - component: {fileID: 224061463}
   m_Layer: 5
   m_Name: InteractUI
-  m_TagString: Untagged
+  m_TagString: InteractUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2182,8 +2182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2c8f2ee9d04264dad409628c207d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 1081805719}
-  ui: {fileID: 224061463}
   cost: 250
   ammoCost: 0
   weapon: {fileID: 11400000, guid: d6a35a0728102fd45b7ea9d1ab09a6ee, type: 2}
@@ -3399,8 +3397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2c8f2ee9d04264dad409628c207d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 1081805719}
-  ui: {fileID: 224061463}
   cost: 1500
   ammoCost: 0
   weapon: {fileID: 11400000, guid: 6296d704c77848042a32466fd14c13f7, type: 2}
@@ -8242,11 +8238,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4971850797962594577, guid: ee821d4efaada034798728919cbcdb05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.0469923
+      value: 9.8
       objectReference: {fileID: 0}
     - target: {fileID: 4971850797962594577, guid: ee821d4efaada034798728919cbcdb05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.98
+      value: 8.54
       objectReference: {fileID: 0}
     - target: {fileID: 4971850797962594577, guid: ee821d4efaada034798728919cbcdb05, type: 3}
       propertyPath: m_LocalPosition.z

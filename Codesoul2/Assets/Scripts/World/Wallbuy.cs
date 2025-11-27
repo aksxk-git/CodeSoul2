@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Wallbuy : MonoBehaviour
 {
-    public GameManager gm;
-    public InteractUI ui;
+    GameManager gm;
+    InteractUI ui;
     public int cost;
     public int ammoCost;
     public Weapon weapon;
@@ -12,6 +12,10 @@ public class Wallbuy : MonoBehaviour
 
     private void Start()
     {
+        // Get script references
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        ui = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<InteractUI>();
+
         cost = weapon.weaponCost;
         ammoCost = weapon.ammoCost;
     }
