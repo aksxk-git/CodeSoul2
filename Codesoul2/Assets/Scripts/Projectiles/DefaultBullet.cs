@@ -51,9 +51,9 @@ public class DefaultBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.CompareTag("Shootable"))
+        /*if (collision.gameObject.CompareTag("Shootable"))
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 }

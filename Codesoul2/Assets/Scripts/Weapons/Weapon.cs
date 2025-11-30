@@ -19,11 +19,15 @@ public class Weapon : ScriptableObject
     public bool isOneHanded; // Determine where we should place the gun on the hip or back of the character
     public bool isSemiAutomatic;
     public float animationSpeed; // Set the animation speed for the weapon animations
+
+    // Weapon Components
+    [Header("Weapon Components")]
+    public GameObject projectile;
+    public RuntimeAnimatorController weaponAnimOverride;
+
+    // Audio
+    [Header("Audio")]
     public AudioClip shotSFX; // Sound effect for the gun when shot
     public AudioClip noAmmoSFX; // Sound effect for the gun when theres no ammo and you try to shoot
-    public GameObject projectile;
-    public int weaponCost;
-    public int ammoCost;
-    // Weapon Components
-    public RuntimeAnimatorController weaponAnimOverride;
+    
 }

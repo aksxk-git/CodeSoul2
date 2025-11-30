@@ -2,22 +2,27 @@ using UnityEngine;
 
 public class Wallbuy : MonoBehaviour
 {
+    // Dependency references
     GameManager gm;
     InteractUI ui;
+    WeaponManager wm;
+
+    // Wallbuy stats
+    [Header("Wallbuy Stats")]
+    public Weapon weapon;
     public int cost;
     public int ammoCost;
-    public Weapon weapon;
+
+    // Interaction
     bool inRange;
     string text;
 
-    private void Start()
+    private void Awake()
     {
         // Get script references
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         ui = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<InteractUI>();
-
-        cost = weapon.weaponCost;
-        ammoCost = weapon.ammoCost;
+        wm = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>();
     }
 
     private void Update()
@@ -51,7 +56,7 @@ public class Wallbuy : MonoBehaviour
 
     public void Purchase(Weapon weapon)
     {
-        gm.playerScore -= weapon.weaponCost;
+        gm.playerScore -= cost;
         weapon.reservedAmmo = weapon.maxReservedAmmo;
 
         if (!gm.HasPlayerGotASecondary())
@@ -60,14 +65,13 @@ public class Wallbuy : MonoBehaviour
         }
         else
         {
-            gm.SetPlayerWeapon(gm.player.GetComponent<WeaponManager>().currentWeaponSlot, weapon);
+            gm.SetPlayerWeapon(wm.currentWeaponSlot, weapon);
         }
     }
 
     public void PurchaseAmmo(Weapon weapon)
     {
-        if (gm.player.GetComponent<WeaponManager>().GetCurrentWeapon().reservedAmmo != gm.player.GetComponent<WeaponManager>().GetCurrentWeapon().maxReservedAmmo &&
-            gm.player.GetComponent<WeaponManager>().GetCurrentWeapon() == weapon)
+        if (wm.GetCurrentWeapon().reservedAmmo != wm.GetCurrentWeapon().maxReservedAmmo && wm.GetCurrentWeapon() == weapon)
         {
             gm.playerScore -= ammoCost;
             weapon.reservedAmmo = weapon.maxReservedAmmo;
