@@ -25,6 +25,12 @@ public class Wallbuy : MonoBehaviour
         wm = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>();
     }
 
+    private void Start()
+    {
+        // Change chalkoutline
+        gameObject.GetComponent<SpriteRenderer>().sprite = weapon.weaponChalkSprite;
+    }
+
     private void Update()
     {
         if (inRange && Input.GetKeyDown(KeyCode.F))

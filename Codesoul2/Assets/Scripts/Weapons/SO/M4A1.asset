@@ -13,20 +13,19 @@ MonoBehaviour:
   m_Name: M4A1
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 1011632807467738149, guid: b2527d6989b3a6742ba907259fb79a0b, type: 3}
+  weaponChalkSprite: {fileID: -4238979975836084776, guid: 5eb99320f23cba740b996713c6247503, type: 3}
   weaponName: M4A1
   damage: 20
   ammoInMag: 30
   maxMagAmount: 30
-  reservedAmmo: 104
+  reservedAmmo: 120
   maxReservedAmmo: 120
   reloadTime: 5
   firerate: 0.1
   isOneHanded: 0
   isSemiAutomatic: 0
   animationSpeed: 1
+  projectile: {fileID: 825735333412919030, guid: 75840390b1ddc554883f8ebd0f8d5b62, type: 3}
+  weaponAnimOverride: {fileID: 22100000, guid: 0215bddde7142fa41a79d74868cbcd97, type: 2}
   shotSFX: {fileID: 8300000, guid: fe710c4b048a1ba4dbe0d17952af8ed6, type: 3}
   noAmmoSFX: {fileID: 8300000, guid: 5def8e7ed373dd040874f456f057b126, type: 3}
-  projectile: {fileID: 825735333412919030, guid: 75840390b1ddc554883f8ebd0f8d5b62, type: 3}
-  weaponCost: 1500
-  ammoCost: 1000
-  weaponAnimOverride: {fileID: 22100000, guid: 0215bddde7142fa41a79d74868cbcd97, type: 2}
