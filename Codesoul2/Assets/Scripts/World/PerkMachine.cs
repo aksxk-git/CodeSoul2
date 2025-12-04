@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Wallbuy : MonoBehaviour
+public class PerkMachine : MonoBehaviour
 {
     // Dependency references
     GameManager gm;
@@ -8,10 +8,9 @@ public class Wallbuy : MonoBehaviour
     WeaponManager wm;
 
     // Wallbuy stats
-    [Header("Wallbuy Config")]
-    public Weapon weapon;
+    [Header("Perk Machine Config")]
+    public Perk perk;
     public int cost;
-    public int ammoCost;
 
     // Interaction
     bool inRange;
@@ -25,24 +24,12 @@ public class Wallbuy : MonoBehaviour
         wm = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>();
     }
 
-    private void Start()
-    {
-        // Change chalkoutline
-        gameObject.GetComponent<SpriteRenderer>().sprite = weapon.weaponChalkSprite;
-    }
-
     private void Update()
     {
         if (inRange && Input.GetKeyDown(KeyCode.F))
         {
-            if (gm.HasPlayerGotThisWeapon(weapon))
-            {
-                PurchaseAmmo(weapon);
-            }
-            else
-            {
-                Purchase(weapon);
-            }
+            // if player has perk already
+            //Purchase();
         }
 
         UpdateDisplayText();
@@ -50,14 +37,14 @@ public class Wallbuy : MonoBehaviour
 
     void UpdateDisplayText()
     {
-        if (gm.HasPlayerGotThisWeapon(weapon))
+        /*if (gm.HasPlayerGotThisWeapon(weapon))
         {
             text = "Press and hold F to purchase ammo for " + weapon.weaponName + " for " + cost + " points!";
         }
         else
         {
             text = "Press and hold F to purchase " + weapon.weaponName + " for " + cost + " points!";
-        }
+        }*/
     }
 
     public void Purchase(Weapon weapon)
@@ -72,15 +59,6 @@ public class Wallbuy : MonoBehaviour
         else
         {
             gm.SetPlayerWeapon(wm.currentWeaponSlot, weapon);
-        }
-    }
-
-    public void PurchaseAmmo(Weapon weapon)
-    {
-        if (wm.GetCurrentWeapon().reservedAmmo != wm.GetCurrentWeapon().maxReservedAmmo && wm.GetCurrentWeapon() == weapon)
-        {
-            gm.playerScore -= ammoCost;
-            weapon.reservedAmmo = weapon.maxReservedAmmo;
         }
     }
 

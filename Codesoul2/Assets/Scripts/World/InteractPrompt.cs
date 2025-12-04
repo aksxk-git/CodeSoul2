@@ -4,10 +4,17 @@ using UnityEngine.Events;
 
 public class InteractPrompt : MonoBehaviour
 {
+    [Header("")]
     [SerializeField] UnityEvent interact;
-    [SerializeField] InteractUI interactUI;
+
+    InteractUI interactUI;
     public string interactText;
     public bool inRange;
+
+    private void Awake()
+    {
+        interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<InteractUI>();
+    }
 
     private void Update()
     {

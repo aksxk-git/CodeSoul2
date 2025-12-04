@@ -2432,6 +2432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HitCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 58899006721630440, guid: cbd857a9bd1e1a444a35b57331e904d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 876161704512859030, guid: cbd857a9bd1e1a444a35b57331e904d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05

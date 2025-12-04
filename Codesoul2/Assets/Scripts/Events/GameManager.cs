@@ -8,10 +8,17 @@ public class GameManager : MonoBehaviour
     public int playerScore;
     public int wave;
     // Game rules
+    [Header("Game Rules")]
     public int startingScore;
     public int perkLimit;
     // Player
-    public Player player;
+    Player player;
+
+    private void Awake()
+    {
+        // Get Player
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
 
     private void Start()
     {

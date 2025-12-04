@@ -9,14 +9,19 @@ public class EndlessWaveGen : MonoBehaviour
 {
     // Script Reference
     public GameManager gameManager;
+
+    // Text
+    [Header("UI")]
     public TMP_Text waveTextUI;
     public TMP_Text countdownTextUI;
 
     // Spawners
+    [Header("Enemy Spawn Locations")]
     public Transform defaultSpawnLocation;
     public GameObject[] spawners;
 
     // Enemy List
+    [Header("Enemies To Spawn")]
     public GameObject[] tier1;
     public GameObject[] tier2;
     public GameObject[] tier3;
@@ -37,6 +42,13 @@ public class EndlessWaveGen : MonoBehaviour
     public int unlockTier = 0;
     public bool readyToSpawn = true;
     public bool spawningHasCompleted = false;
+
+    private void Awake()
+    {
+        // Get Script References
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
+    }
 
     private void Start()
     {
